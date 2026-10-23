@@ -7,6 +7,7 @@ import Investment from './sections/Investment'
 import FAQ from './sections/FAQ'
 import FinalCTA from './sections/FinalCTA'
 import Footer from './components/Footer'
+import LeadFormModal from './components/LeadFormModal'
 
 export default function App() {
   return (
@@ -20,9 +21,9 @@ export default function App() {
         <ProgramDetails />
         <Investment />
         <FAQ />
-        <FinalCTA />
       </main>
       <Footer />
+      <LeadFormModal />
     </>
   )
 }
