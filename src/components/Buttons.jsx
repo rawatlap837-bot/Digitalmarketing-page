@@ -1,0 +1,9 @@
+export const primaryButtonClass = 'primary-cta relative isolate overflow-hidden inline-flex items-center justify-center min-h-[58px] px-8 py-3 rounded-full font-bold text-lg sm:text-xl text-[#21123B] bg-[#FFD84D] hover:bg-[#FFE477] border border-[#FFE993] shadow-[0_12px_36px_rgba(17,4,40,.28),0_0_24px_rgba(255,216,77,.22)] hover:shadow-[0_16px_42px_rgba(17,4,40,.32),0_0_30px_rgba(255,216,77,.34)] hover:-translate-y-0.5 transition-all duration-200'
+
+export function PrimaryButton({ href = '#lead', children, className = '' }) {
+  return <a href={href} className={`${primaryButtonClass} ${className}`}>{children}</a>
+}
+
+export function SecondaryButton({ href, children, className = '' }) {
+  return <a href={href} className={`inline-flex items-center justify-center min-h-[54px] px-8 py-3 rounded-full border border-white/35 bg-white/10 font-semibold text-white hover:border-white/65 hover:bg-white/20 transition-all duration-200 ${className}`}>{children}</a>
+}
