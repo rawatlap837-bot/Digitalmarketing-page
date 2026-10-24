@@ -69,7 +69,7 @@ const programDetails = [
 export default function ProgramDetails() {
   return <>
     {programDetails.map((block, index) => (
-      <ContentBlock key={block.id} block={block} alternate={index % 2 === 1} />
+      !['who', 'careers', 'trainers', 'stories'].includes(block.id) && <ContentBlock key={block.id} block={block} alternate={index % 2 === 1} />
     ))}
   </>
 }

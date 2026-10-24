@@ -1,32 +1,13 @@
-import RichText from '../components/RichText'
 import { PrimaryButton } from '../components/Buttons'
 
-const callToAction = {
-  title: 'The Next Batch Starts [Date]. Will You Be In It?',
-  description: 'Six months from now, you can still be wondering how to start, or you can be holding a portfolio, a certificate and the skills to earn from digital marketing.',
-  button: 'Reserve My Seat',
-  note: 'Questions first? Talk to a counselor on [phone or WhatsApp number].',
-}
-
 export default function FinalCTA() {
-  return (
-    <section className="relative isolate py-12 sm:py-16 lg:py-[112px]">
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-violet" />
-
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-7 lg:px-10">
-        <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-[#B69AFF]/25 bg-gradient-to-br from-[#49316F] to-[#24183B] p-6 shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:rounded-[2rem] sm:p-8 lg:p-12">
-          <h2 className="mb-5 text-[30px] leading-tight sm:text-[36px] lg:text-[42px]">
-            <RichText>{callToAction.title}</RichText>
-          </h2>
-
-          <p className="mb-8 text-muted">{callToAction.description}</p>
-          <PrimaryButton>{callToAction.button}</PrimaryButton>
-
-          <p className="mt-5 text-sm text-muted">
-            <RichText>{callToAction.note}</RichText>
-          </p>
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="enroll" className="relative isolate bg-violet px-5 py-12 sm:px-8 sm:py-16">
+    <div className="mx-auto max-w-5xl rounded-3xl border border-[#FFD84D]/40 bg-gradient-to-br from-[#432078] to-[#25103F] p-6 text-center sm:p-10">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[.18em] text-[#FFD84D]">Your Next Step Starts Here</p>
+      <h2 className="mb-4 text-3xl font-bold leading-tight text-white sm:text-4xl">Build Your Marketing Future. <span className="font-['Playfair_Display'] text-[#FFD84D]">Enroll Now.</span></h2>
+      <p className="mx-auto mb-6 max-w-2xl text-sm text-[#E3D7F1]">Learn Digital Marketing And AI Through Live Classes, Practical Projects And Mentor Guidance At Creative Adhyayan.</p>
+      <PrimaryButton>Enroll Now</PrimaryButton>
+      <p className="mt-4 text-xs text-[#CDB9E0]">Send An Enquiry For Course Fees, Batch Availability And Admission Details.</p>
+    </div>
+  </section>
 }
