@@ -6,7 +6,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: #100D1B; color: #FFFFFF; font: 400 17px/1.65 'DM Sans', sans-serif; overflow-x: hidden;
   background-image: radial-gradient(ellipse at 12% 4%, rgba(151,113,255,.22), transparent 34%), radial-gradient(ellipse at 90% 28%, rgba(209,192,255,.11), transparent 34%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
   background-size: auto, auto, 56px 56px, 56px 56px; }
-body #root { text-transform: capitalize; }
+body #root { text-transform: none; }
 h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -.035em; }
 h1 { text-wrap: balance; }
 h2 { text-wrap: balance; }
@@ -24,7 +24,8 @@ input, select, button, a { -webkit-tap-highlight-color: transparent; }
   animation: cta-shine 1.35s ease-in-out infinite;
   pointer-events: none;
 }
-.primary-cta { animation: cta-float .85s ease-in-out infinite; }
+.primary-cta { animation: none; }
+.primary-cta::after { animation: none; opacity: 0; }
 @keyframes cta-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -40,5 +41,47 @@ input, select, button, a { -webkit-tap-highlight-color: transparent; }
   h2 { letter-spacing: -.03em; }
 }
 summary { cursor: pointer; }
+
+/* Page rhythm and card styling. Change these values to tune the whole page. */
+.page-section { border-bottom: 1px solid rgba(150, 122, 190, .12); }
+.page-section h2 { max-width: 24ch; line-height: 1.16; }
+.page-section p { line-height: 1.75; }
+.page-section > div:last-child { max-width: 1240px; }
+.page-section li { transition: border-color .2s, box-shadow .2s, transform .2s; }
+.page-section li:hover { transform: translateY(-3px); }
+#roadmap ol > li,
+#ai ul > li,
+#classes ul > li,
+#who ul > li,
+#stories ul > li {
+  background: #653bb0;
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 8px 24px rgba(40,15,80,.08);
+}
+#roadmap ol > li:hover,
+#ai ul > li:hover,
+#classes ul > li:hover,
+#who ul > li:hover { border-color: rgba(255,255,255,.55); }
+#roadmap h3 { font-size: 23px; line-height: 1.35; letter-spacing: -.025em; }
+#roadmap ol > li { display: flex; flex-direction: column; }
+#roadmap ol > li > p:last-child { margin-top: auto; background: #583098; }
+#invest ul > li { background: #653bb0; border-color: rgba(255,255,255,.25); }
+#invest ul > li:first-child { background: #fff; color: #382052; border-color: #fff; }
+#faq details { background: #653bb0; border-color: rgba(255,255,255,.22); }
+#faq details[open] { background: #fff; border-color: #fff; }
+#faq details[open] summary { color: #302044; }
+#faq details[open] p { color: #64566f; }
+#faq summary::-webkit-details-marker { display: none; }
+#tools li { padding: 10px 18px; border-radius: 12px; }
+.primary-cta { box-shadow: 0 5px 0 #d7ad2d, 0 10px 24px rgba(29,12,55,.16); }
+.primary-cta:hover { box-shadow: 0 3px 0 #d7ad2d, 0 14px 28px rgba(29,12,55,.2); }
+@media (min-width: 1024px) {
+  .page-section { padding-top: 88px; padding-bottom: 88px; }
+}
+@media (max-width: 639px) {
+  .page-section h2 { font-size: 30px; margin-bottom: 26px; }
+  .page-section li:hover { transform: none; }
+  #roadmap ol > li { padding: 24px; }
+}
 :focus-visible { outline: 3px solid rgba(198,174,255,.8); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

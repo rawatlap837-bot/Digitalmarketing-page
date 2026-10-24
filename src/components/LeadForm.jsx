@@ -1,6 +1,15 @@
 import { useState } from 'react'
-import C from '../content'
 import { primaryButtonClass, PrimaryButton } from './Buttons'
+
+const formCopy = {
+  title: 'Get the Free Syllabus and Seat Details',
+  statuses: ['Student', 'Working', 'Business owner', 'Job seeker'],
+  button: 'Send Me the Syllabus',
+  privacy: 'We respect your privacy. No spam.',
+  thanksTitle: "You're In! Check Your WhatsApp and Email",
+  thanksMessage: 'Your syllabus is on its way. Next step: Book your free counseling call or join the next demo class:',
+  thanksButton: 'Book Now',
+}
 
 export default function LeadForm({ id }) {
   const [values, setValues] = useState({ name: '', phone: '', email: '', status: '' })
@@ -22,9 +31,9 @@ export default function LeadForm({ id }) {
 
   if (submitted) return (
     <div className="bg-[#171126]/95 text-white border border-white/25 rounded-3xl p-8 shadow-[0_24px_70px_rgba(26,10,53,.32)]" aria-live="polite">
-      <h3 className="text-[28px] mb-3">{C.form.thanksH}</h3>
-      <p className="text-muted mb-6">{C.form.thanksP}</p>
-      <PrimaryButton href="#lead">{C.form.thanksBtn}</PrimaryButton>
+      <h3 className="text-[28px] mb-3">{formCopy.thanksTitle}</h3>
+      <p className="text-muted mb-6">{formCopy.thanksMessage}</p>
+      <PrimaryButton href="#lead">{formCopy.thanksButton}</PrimaryButton>
     </div>
   )
 
@@ -38,19 +47,19 @@ export default function LeadForm({ id }) {
 
   return (
     <form onSubmit={submit} noValidate className="bg-gradient-to-br from-[#2B1D47] to-[#171126] text-white backdrop-blur border border-[#B69AFF]/20 rounded-2xl sm:rounded-3xl p-5 sm:p-8 grid gap-3 sm:gap-4 shadow-[0_24px_70px_rgba(26,10,53,.32)]">
-      <h3 className="text-[24px]">{C.form.h}</h3>
+      <h3 className="text-[24px]">{formCopy.title}</h3>
       {field('name', 'Full name')}
       {field('phone', 'Phone or WhatsApp', 'tel')}
       {field('email', 'Email', 'email')}
       <div>
         <label htmlFor={`${id}-status`} className="block text-sm mb-1">Current status</label>
         <select id={`${id}-status`} name="status" value={values.status} onChange={event => setValues({ ...values, status: event.target.value })} className={inputClass} aria-invalid={Boolean(errors.status)}>
-          <option value="">Select</option>{C.form.status.map(status => <option key={status} value={status}>{status}</option>)}
+          <option value="">Select</option>{formCopy.statuses.map(status => <option key={status} value={status}>{status}</option>)}
         </select>
         <p className="text-bad text-sm" aria-live="polite">{errors.status}</p>
       </div>
-      <button type="submit" className={primaryButtonClass}>{C.form.btn}</button>
-      <p className="text-muted text-sm">{C.form.priv}</p>
+      <button type="submit" className={primaryButtonClass}>{formCopy.button}</button>
+      <p className="text-muted text-sm">{formCopy.privacy}</p>
     </form>
   )
 }
