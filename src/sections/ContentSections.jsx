@@ -4,30 +4,27 @@ import ContentBlock from '../components/ContentBlock'
 const contentSections = [
   {
     id: 'problem',
-    h: 'Why Choose This Course?',
-    p: ['24 weeks of practical learning, AI tools and guided projects to build your marketing skills and portfolio.'],
+    h: 'Why Choose Us',
+    p: ['Live training. Practical work. A portfolio that shows what you can do.'],
     l: [
-      'Hands-on learning. Build websites, plan campaigns and create funnels through guided labs.',
-      'AI in every class. Practice research, content and automation with ChatGPT, Claude and Gemini.',
-      'A portfolio you can show. Create six hands-on projects and a final marketing capstone.',
-      'Feedback that helps you grow. Get written project feedback, monthly reviews and capstone mentoring.',
-      'Online or in the classroom. Follow the same syllabus in three live 90-minute sessions each week.',
-      'Prepare for work. Practice client pitches, pricing and interviews. Build your resume and LinkedIn profile.',
+      '100% Live Classes. 72 interactive sessions with demos, guided labs and time for questions.',
+      'Hands-on Projects. Six practical projects and a final capstone to apply your skills.',
+      'Proof In Your Portfolio. Build a website, campaign plans, a dashboard and automation workflows.',
+      'Personal Mentor Feedback. Get written project reviews and one-to-one capstone guidance.',
     ],
   },
   {
     id: 'solution',
     h: 'About Creative Adhyayan',
     p: [
-      'At **Creative Adhyayan**, we help you turn curiosity into practical digital marketing skills. Our **six-month Digital Marketing Master Program** takes you from the foundations to advanced strategy, combining live teaching, hands-on practice and __AI in every class__.',
-      'Across **72 live sessions**, you build websites, create content, plan campaigns and automate marketing tasks. With guided projects, personal feedback and a **final capstone**, you develop __a portfolio__ to support your next step in a job, freelancing or your own business.',
-      'Learn **in the classroom or live online**, with the same structured syllabus and a clear path from learning a concept to applying it.',
+      '**Creative Adhyayan** brings you **six months** of practical digital marketing with __AI in every class__.',
+      '**72 live sessions.** Build projects and __a portfolio__, with mentor guidance. Learn **offline or live online**.',
     ],
   },
   {
     id: 'modules',
     h: 'Course Modules',
-    p: ['Six months. A clear path from marketing foundations to a complete marketing system.'],
+    p: ['**Six months.** A clear path from __marketing foundations__ to a **complete marketing system**.'],
     modules: [
       { title: 'Foundations & AI Literacy', topics: 'Marketing basics, prompting, audience research and branding.', project: 'Brand kit & strategy document' },
       { title: 'Content, Social Media & SEO', topics: 'Copywriting, social strategy, short-form video and keyword research.', project: '30-day calendar, 3 videos & SEO article' },
@@ -53,8 +50,7 @@ const contentSections = [
   },
   {
     id: 'can',
-    h: 'Practical Projects & Live Training',
-    p: ['Learn through 72 live sessions, hands-on labs and project reviews. Build your portfolio one assignment at a time.'],
+    h: '100% Practical Projects & Live Training',
     l: [
       'Brand & Strategy. Research a practice business, define its audience and create a brand kit.',
       'Content & SEO. Build a 30-day calendar, produce three videos and write an optimized article.',
@@ -63,7 +59,6 @@ const contentSections = [
       'Analytics & AI Workflow. Set up tracking, create a dashboard and automate lead handling.',
       'Final Capstone. Present a complete marketing system, a 90-day growth plan and a pitch deck.',
     ],
-    after: ['Live guidance. Each 90-minute class includes a concept demo, hands-on practice and time for doubts. Receive written project feedback and a mentor review before your capstone.'],
   },
 ]
 

@@ -2,6 +2,7 @@ import RichText from './RichText'
 import Section from './Section'
 import ProblemInsights from './ProblemInsights'
 import AiToolsGrid from './AiToolsGrid'
+import InstituteCarousel from './InstituteCarousel'
 import ProjectTimeline from './ProjectTimeline'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { AiBrain01Icon, Video01Icon, Certificate01Icon, BriefcaseBusinessIcon, ChartLineData01Icon, Location01Icon, MoneyBag01Icon, Task01Icon } from '@hugeicons/core-free-icons'
@@ -25,21 +26,27 @@ export default function ContentBlock({ block, alternate = false }) {
     : { text: 'text-[#E3DDF0]', badge: 'bg-gradient-to-br from-[#A783F5] to-[#673BCC] text-white', card: 'bg-white/[.08] border-white/15 shadow-[0_12px_30px_rgba(0,0,0,.12)]' }
 
   return (
-    <Section id={block.id} title={block.h} alternate={alternate} light={alternate} aside={block.id === 'solution' && <div className="overflow-hidden rounded-3xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,.28)]"><img src="/images/agency-team.webp" alt="Two digital marketing professionals planning a campaign together at their agency workspace" className="aspect-[4/3] w-full object-cover" loading="lazy" /></div>}>
-      {block.modules && <div className="mb-6 flex flex-wrap gap-2 text-xs font-semibold text-[#715298] sm:text-sm">
-        {['24 Weeks', '72 Live Sessions', '108 Contact Hours'].map(label => <span key={label} className="rounded-full border border-[#DED0EF] bg-[#F7F2FC] px-4 py-1.5">{label}</span>)}
-      </div>}
+    <Section id={block.id} title={block.h} alternate={alternate} light={alternate}>
       {block.p?.map((text, index) => {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
           : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-[15px] sm:text-lg leading-7 sm:leading-8' : 'text-base sm:text-lg'} max-w-3xl mb-4 sm:mb-5`}><RichText>{text}</RichText></p>
       })}
+      {block.id === 'solution' && <>
+        <div className="about-highlights my-6 grid grid-cols-3 gap-3">
+          {[['6', 'Months'], ['72', 'Live Sessions'], ['AI', 'In Every Class']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
+            <span className="block font-['Bricolage_Grotesque'] text-2xl font-bold text-[#EFBF04] sm:text-3xl">{value}</span>
+            <span className="mt-1 block text-[10px] text-[#D5C3E8] sm:text-xs">{label}</span>
+          </div>)}
+        </div>
+        <InstituteCarousel />
+      </>}
       {featured && block.l && <ProblemInsights items={block.l} />}
       {block.id === 'ai' && <AiToolsGrid />}
       {processLayout && block.l && <ProjectTimeline items={block.l} />}
       {block.modules && <ol className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {block.modules.map((module, index) => <li key={module.title} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${index === 5 ? 'border-[#D5B45C] bg-[#FFFDF5]' : 'border-[#E3D7EF] bg-white'}`}>
+        {block.modules.map((module, index) => <li key={module.title} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${index === 5 ? 'border-[#C79E2A] bg-[#FFFDF5]' : 'border-[#E3D7EF] bg-white'}`}>
           <div className="mb-5 flex items-center gap-3">
             <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#8054C3] to-[#502592] text-white shadow-[0_5px_12px_rgba(80,37,146,.18)] transition-transform group-hover:rotate-6"><HugeiconsIcon icon={moduleIcons[index % moduleIcons.length]} size={25} strokeWidth={1.7} /></span>
             <div>
@@ -49,15 +56,17 @@ export default function ContentBlock({ block, alternate = false }) {
           </div>
           <span className="mb-2 text-[10px] font-bold uppercase tracking-[.16em] text-[#8B759F]">{index < 2 ? 'Build Your Foundation' : index < 4 ? 'Put Skills Into Practice' : 'Advance & Apply'}</span>
           <h3 className="mb-3 text-lg font-bold leading-snug text-[#302342]">{module.title}</h3>
-          <p className="mb-5 text-sm text-[#70647C]">{module.topics}</p>
-          <div className="mb-5 flex flex-wrap gap-1.5">
+          <div className="module-tool-logos mb-4 flex flex-wrap justify-start gap-3">
             {[
-              ['ChatGPT', 'Canva', 'Research'], ['Content', 'Video', 'SEO'],
-              ['WordPress', 'Meta Ads', 'Local SEO'], ['Google Ads', 'Funnels', 'CRM'],
-              ['GA4', 'Looker Studio', 'Automation'], ['Strategy', 'Pitching', 'Portfolio'],
-            ][index].map(tag => <span key={tag} className="rounded-md border border-[#E9E0F3] bg-[#FAF7FD] px-2 py-1 text-[11px] font-medium text-[#79608F]">{tag}</span>)}
+              [['ChatGPT', 'chatgpt'], ['Canva', 'canva'], ['Perplexity Research', 'perplexity']],
+              [['Canva', 'canva'], ['CapCut', 'capcut'], ['Search Console', 'search-console']],
+              [['WordPress', 'wordpress'], ['Meta Ads', 'meta'], ['Elementor', 'elementor']],
+              [['Google Ads', 'google-ads'], ['Mailchimp', 'mailchimp'], ['WhatsApp', 'whatsapp']],
+              [['GA4', 'ga4'], ['Looker Studio', 'looker-studio'], ['Make', 'make']],
+              [['Notion', 'notion'], ['Canva', 'canva'], ['ChatGPT', 'chatgpt']],
+            ][index].map(([name, logo]) => <img key={logo} src={`/images/tools/${logo}.${logo === 'looker-studio' ? 'svg' : 'webp'}`} alt={name} title={name} width="32" height="32" loading="lazy" className="h-8 w-8 object-contain" />)}
           </div>
-          <div className={`mt-auto rounded-xl border p-3.5 ${index === 5 ? 'border-[#EBDDAD] bg-[#FFF5D5]' : 'border-[#E8DDF4] bg-[#F6F0FC]'}`}>
+          <div className={`mt-auto rounded-xl border p-3.5 ${index === 5 ? 'border-[#E2C771] bg-[#FFF0B8]' : 'border-[#E8DDF4] bg-[#F6F0FC]'}`}>
             <span className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#7147B8]"><HugeiconsIcon icon={BriefcaseBusinessIcon} size={15} aria-hidden="true" />What You Build</span>
             <span className="text-sm font-medium text-[#49345F]">{module.project}</span>
           </div>

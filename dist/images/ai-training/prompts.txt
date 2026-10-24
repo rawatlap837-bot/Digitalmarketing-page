@@ -1,0 +1,12 @@
+Built-in image_gen was used for six illustrative training scenes.
+Shared prompt: Use case: photorealistic-natural. Asset: wide landscape photograph for a digital marketing course card. Candid professional training workspace in India, realistic human anatomy, natural daylight, tasteful subtle purple details, high quality editorial photography. Clearly show both the human and screen, medium over-shoulder composition, horizontal 3:2 framing. No floating logos, no text overlays, no watermarks. Illustrative scene, not a testimonial.
+writing.webp: An Indian young adult woman drafting marketing copy on ChatGPT on a laptop, over-the-shoulder view, chat interface visible.
+research.webp: An Indian young adult man researching competitors using Perplexity and Gemini on a desktop monitor, over-the-shoulder view, research results visible.
+design.webp: An Indian young adult woman creating a social media campaign in Canva on a large monitor, visual design editor visible.
+video.webp: An Indian young adult man editing a short social video in CapCut on a laptop, video timeline and preview visible.
+automation.webp: An Indian young adult woman building a marketing automation workflow in Make on a monitor, connected workflow nodes visible.
+generation.webp: An Indian young adult designer creating AI campaign images using an image generator on a monitor, grid of generated campaign visuals visible.
+
+research-v2.webp (built-in image_gen edit): Preserve Indian male researcher and over-shoulder composition. Improve soft daylight and clarity, reduce clutter, replace long table with concise Gemini and Perplexity research panes, Audience Insights and Competitor Research headings, simple charts and source cards. No pricing claims, floating logos or watermark.
+
+research-v3.webp (built-in image_gen edit): Correct human hand anatomy. Exactly two arms, both resting naturally on desk, left hand near keyboard and right hand on mouse. Remove chin-touching hand. Preserve man, office, monitor and lighting.

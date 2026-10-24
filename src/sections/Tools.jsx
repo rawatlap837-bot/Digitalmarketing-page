@@ -35,7 +35,7 @@ function ToolLogo({ name, domain }) {
 export default function Tools() {
   return (
     <div id="tools" role="region" aria-label="Tools you will learn" className="relative z-10 mt-7 sm:mt-12">
-      <div className="tools-carousel overflow-hidden" tabIndex={0} aria-label="Marketing tools carousel. Hover or focus to pause.">
+      <div className="tools-carousel overflow-hidden" aria-label="Marketing tools carousel">
         <div className="tools-track flex w-max">
           {[0, 1].map(copy => (
             <ul key={copy} aria-hidden={copy === 1 ? true : undefined} className="flex shrink-0 items-center gap-3 py-2 pr-3 sm:gap-4 sm:py-3 sm:pr-4">

@@ -1,11 +1,9 @@
-﻿import Section from '../components/Section'
-import { HugeiconsIcon } from '@hugeicons/react'
-import { Video01Icon } from '@hugeicons/core-free-icons'
+import Section from '../components/Section'
 
 const placeholders = [
-  { title: 'The Learning Experience', src: '' },
-  { title: 'Projects & Portfolio', src: '' },
-  { title: 'Putting AI Into Practice', src: '' },
+  { name: 'Aarav Sharma', title: 'Learning By Doing', quote: 'The practical labs made each topic easier to understand. Building a website and planning campaigns helped me connect the lessons.' },
+  { name: 'Neha Verma', title: 'Work I Can Show', quote: 'Working on projects gave me a clear way to practice. The feedback helped me refine my work and organize my portfolio.' },
+  { name: 'Rohan Mehta', title: 'AI With A Purpose', quote: 'I enjoyed exploring AI tools for research and content. Learning to review the output made the exercises more useful.' },
 ]
 
 export default function Testimonials() {
@@ -13,7 +11,6 @@ export default function Testimonials() {
   const resumeAt = useRef(0)
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
-  const [playing, setPlaying] = useState(false)
   const [reducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   const pauseInteraction = () => { resumeAt.current = Date.now() + 6500 }
   useEffect(() => {
@@ -46,7 +43,7 @@ export default function Testimonials() {
     }
   }, [])
   useEffect(() => {
-    if (hovered || focused || playing || reducedMotion) return
+    if (hovered || focused || reducedMotion) return
     const timer = window.setInterval(() => {
       const viewport = scrollRef.current
       if (!viewport || Date.now() < resumeAt.current) return
@@ -54,24 +51,26 @@ export default function Testimonials() {
       viewport.scrollBy({ left: card.getBoundingClientRect().width + 16, behavior: 'smooth' })
     }, 5000)
     return () => window.clearInterval(timer)
-  }, [hovered, focused, playing, reducedMotion])
+  }, [hovered, focused, reducedMotion])
   return (
     <Section id="testimonials" title="Student Testimonials" light>
-      <p className="mb-6 max-w-2xl text-sm text-[#70647C]">Student Stories Will Be Shared Here As Feedback Becomes Available.</p>
-      <div className="mx-auto w-full" role="region" aria-roledescription="carousel" aria-label="Student video testimonials" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
+      <p className="mb-6 max-w-2xl text-sm text-[#70647C]">Sample Testimonials For Preview. Names And Reviews Are Illustrative.</p>
+      <div className="mx-auto w-full" role="region" aria-roledescription="carousel" aria-label="Student testimonials" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
       <div ref={scrollRef} className="testimonial-scroll overflow-x-auto rounded-2xl" tabIndex={0} aria-label="Scroll testimonials horizontally" onPointerDown={pauseInteraction} onWheel={pauseInteraction} onTouchStart={pauseInteraction} onKeyDown={pauseInteraction}>
       <ul className="flex gap-4">
-        {[...placeholders, ...placeholders, ...placeholders].map(({ title, src }, index) => (
-          <li key={`${title}-${index}`} className="flex w-full shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-[#E6DCEF] bg-white shadow-[0_5px_20px_rgba(67,32,120,.04)] sm:w-[calc((100%_-_16px)/2)] lg:w-[calc((100%_-_32px)/3)]">
-            {src ? <video controls playsInline preload="none" aria-label={title} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} className="aspect-video w-full bg-[#231237] object-contain"><source src={src} />Your browser does not support video playback.</video> : (
-              <div className="flex aspect-video flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#513085] to-[#25103F] p-5 text-center">
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-[#FFD84D]/40 bg-[#FFD84D]/10 text-[#FFD84D]"><HugeiconsIcon icon={Video01Icon} size={28} aria-hidden="true" /></span>
-                <span className="text-xs font-semibold text-[#E3D7F1]">Video Coming Soon</span>
+        {[...placeholders, ...placeholders, ...placeholders].map(({ name, title, quote }, index) => (
+          <li key={`${title}-${index}`} className="relative flex w-full shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-[#E6DCEF] bg-white shadow-[0_5px_20px_rgba(67,32,120,.04)] sm:w-[calc((100%_-_16px)/2)] lg:w-[calc((100%_-_32px)/3)]">
+            <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#7147B8] via-[#B99BD8] to-[#EFBF04]" />
+            <div className="flex min-h-[210px] flex-1 flex-col bg-gradient-to-br from-[#FAF7FE] to-white p-5 sm:p-6">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-xl bg-[#EEE5FA] text-[#7147B8]"><svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h6v7H6c0 3 1 4 4 5v2c-5-1-7-4-7-9V6a1 1 0 0 1 1-1Zm11 0h6v7h-4c0 3 1 4 4 5v2c-5-1-7-4-7-9V6a1 1 0 0 1 1-1Z" /></svg></span>
+                <span className="rounded-full border border-[#E4D6F0] bg-white px-2.5 py-1 text-[9px] font-semibold text-[#8B739E]">Sample Review</span>
               </div>
-            )}
-            <div className="p-4">
-              <h3 className="mb-2 text-base font-bold text-[#302342]">{title}</h3>
-              <p className="text-xs text-[#9A89A7]">Student Name & Batch To Be Added</p>
+              <h3 className="mb-3 font-['Bricolage_Grotesque'] text-lg font-bold text-[#302342]">{title}</h3>
+              <p className="text-sm leading-relaxed text-[#70647C]">{quote || 'A space for real student feedback on learning at Creative Adhyayan.'}</p>
+            </div>
+            <div className="border-t border-[#EDE5F4] px-5 py-4">
+              <p className="text-xs font-semibold text-[#5D4673]">{name}</p>
             </div>
           </li>
         ))}
