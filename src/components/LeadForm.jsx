@@ -3,30 +3,57 @@ import { primaryButtonClass, PrimaryButton } from './Buttons'
 
 const formCopy = {
   title: 'Get the Free Syllabus and Seat Details',
-  statuses: ['Student', 'Working', 'Business owner', 'Job seeker'],
+  statuses: ['Student', 'Working', 'Business owner', 'Job seeker', 'Housewife'],
   button: 'Send Me the Syllabus',
   privacy: 'We respect your privacy. No spam.',
-  thanksTitle: "You're In! Check Your WhatsApp and Email",
-  thanksMessage: 'Your syllabus is on its way. Next step: Book your free counseling call or join the next demo class:',
+  thanksTitle: 'Thanks! Your Details Have Been Received',
+  thanksMessage: 'Our team will contact you with the syllabus, course fees and upcoming demo session details.',
   thanksButton: 'Book Now',
 }
+
+// Set this in .env.local after deploying the Google Apps Script web app.
+const sheetWebhookUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL
 
 export default function LeadForm({ id }) {
   const [values, setValues] = useState({ name: '', phone: '', email: '', status: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const inputClass = 'w-full min-h-[50px] rounded-xl bg-[#251D3D] border border-[#55466F] px-4 text-white placeholder:text-[#B8ADC9] focus:border-[#B69AFF] focus:ring-2 focus:ring-[#B69AFF]/20'
 
-  function submit(event) {
+  async function submit(event) {
     event.preventDefault()
+    setSubmitError('')
     const nextErrors = {}
     if (!values.name.trim()) nextErrors.name = 'Please enter your full name.'
     if (!/^\+?[0-9\s-]{10,14}$/.test(values.phone.trim())) nextErrors.phone = 'Please enter a valid phone number.'
     if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) nextErrors.email = 'Please enter a valid email address.'
     if (!values.status) nextErrors.status = 'Please choose your current status.'
     setErrors(nextErrors)
-    // Connect this form to your preferred lead destination before collecting submissions.
-    if (!Object.keys(nextErrors).length) setSubmitted(true)
+    if (Object.keys(nextErrors).length) return
+
+    if (!sheetWebhookUrl) {
+      setSubmitError('The form is not connected yet. Please contact us directly.')
+      return
+    }
+
+    setIsSending(true)
+    try {
+      // Apps Script accepts this simple request without a browser preflight.
+      // Its no-cors response is opaque, so we can only confirm the request was sent.
+      await fetch(sheetWebhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ ...values, source: window.location.href }),
+      })
+      setSubmitted(true)
+    } catch {
+      setSubmitError('We could not send your details. Please check your connection and try again.')
+    } finally {
+      setIsSending(false)
+    }
   }
 
   if (submitted) return (
@@ -58,7 +85,8 @@ export default function LeadForm({ id }) {
         </select>
         <p className="text-bad text-sm" aria-live="polite">{errors.status}</p>
       </div>
-      <button type="submit" className={primaryButtonClass}>{formCopy.button}</button>
+      {submitError && <p className="text-sm text-red-300" role="alert">{submitError}</p>}
+      <button type="submit" disabled={isSending} className={`${primaryButtonClass} disabled:cursor-wait disabled:opacity-70`}>{isSending ? 'Sending…' : formCopy.button}</button>
       <p className="text-muted text-sm">{formCopy.privacy}</p>
     </form>
   )

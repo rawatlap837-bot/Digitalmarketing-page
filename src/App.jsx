@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Hero from './sections/Hero'
 import ContentSections from './sections/ContentSections'
 import Roadmap from './sections/Roadmap'
@@ -12,9 +13,11 @@ import LeadFormModal from './components/LeadFormModal'
 
 export default function App() {
   useEffect(() => {
+    // Fade page sections in as they enter the screen. Leave motion off when
+    // the visitor prefers reduced motion or the browser lacks this feature.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
 
-    const targets = document.querySelectorAll('main > section > div:not([aria-hidden]), main .page-section > div:not([aria-hidden]), footer')
+    const revealTargets = document.querySelectorAll('main > section > div:not([aria-hidden]), main .page-section > div:not([aria-hidden]), footer')
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -24,13 +27,13 @@ export default function App() {
       })
     }, { threshold: 0, rootMargin: '0px 0px -24px 0px' })
 
-    targets.forEach(target => {
+    revealTargets.forEach(target => {
       target.classList.add('page-reveal')
       observer.observe(target)
     })
     return () => {
       observer.disconnect()
-      targets.forEach(target => target.classList.remove('page-reveal', 'is-revealed'))
+      revealTargets.forEach(target => target.classList.remove('page-reveal', 'is-revealed'))
     }
   }, [])
 
@@ -53,4 +56,3 @@ export default function App() {
     </>
   )
 }
-import { useEffect } from 'react'

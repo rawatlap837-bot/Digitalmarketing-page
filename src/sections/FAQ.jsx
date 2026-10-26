@@ -3,6 +3,7 @@ import Section from '../components/Section'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowDown01Icon } from '@hugeicons/core-free-icons'
 
+// Add, remove, or edit question-and-answer pairs here.
 const questions = [
   ['Do I need marketing experience?', 'No. Basic computer and internet skills are enough to start. The course progresses from beginner to advanced topics.'],
   ['How long is the course?', '24 weeks, with 72 live sessions and 108 contact hours. Classes run three times a week for 90 minutes each.'],
@@ -15,7 +16,7 @@ const questions = [
 ]
 
 export default function FAQ() {
-  return <Section id="faq" title="Frequently Asked Questions (FAQs)">
+  return <Section id="faq" title="Frequently Asked Questions" highlight="(FAQs)">
     <p className="mb-7 max-w-2xl text-sm text-[#E3D7F1]">Everything You Need To Know Before Taking The Next Step.</p>
     <div className="faq-list mx-auto grid max-w-4xl gap-3">{questions.map(([question, answer], index) =>
       <details key={question} name="course-faq" open={index === 0} className="group bg-gradient-to-r from-[#2B1E44] to-[#1D162D] border border-[#B69AFF]/15 rounded-xl sm:rounded-2xl p-4 sm:p-5 open:from-[#382657] open:to-[#251A3A] open:border-[#B69AFF]/30 transition-colors">

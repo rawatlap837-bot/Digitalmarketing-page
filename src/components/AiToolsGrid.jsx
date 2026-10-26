@@ -13,7 +13,7 @@ export default function AiToolsGrid() {
       {categories.map(([title, label, description, tools]) => (
         <li key={title} className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/20 bg-[#432079] shadow-[0_10px_30px_rgba(28,9,57,.12)]">
           <div className="flex min-w-0 flex-1 flex-col p-4">
-            <span className="mb-1.5 text-[9px] font-bold uppercase tracking-[.14em] text-[#EFBF04]">{label}</span>
+            <span className="mb-1.5 text-xs font-bold uppercase tracking-[.14em] text-[#EFBF04]">{label}</span>
             <h3 className="mb-2 text-xl font-bold leading-snug text-white sm:text-[22px]">{title}</h3>
             <p className="!mb-0 text-[13px] leading-relaxed text-[#DDD0EE]">{description}</p>
             <div className="mt-4 flex flex-wrap gap-4">
@@ -22,7 +22,7 @@ export default function AiToolsGrid() {
                 <span className="grid h-14 w-14 place-items-center rounded-xl border border-white/20 bg-white shadow-sm sm:h-16 sm:w-16">
                   <img src={`/images/tools/${logo}.webp`} alt="" width="40" height="40" loading="lazy" className="h-10 w-10 object-contain sm:h-11 sm:w-11" />
                 </span>
-                <span className="max-w-[88px] text-center text-[10px] font-medium leading-tight text-[#E8DCF6]">{name}</span>
+                <span className="max-w-[96px] text-center text-xs font-medium leading-snug text-[#E8DCF6]">{name}</span>
               </div>
             ))}
             </div>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 :root { color-scheme: dark; font-family: 'DM Sans', sans-serif; }
-/* Background options: Version 1 = #5B2DA8; Version 2 = navy gradient (active). */
+/* Shared section background. Change this one value to recolor the page sections. */
 :root {
   --section-background: linear-gradient(135deg, #14283F 0%, #101C32 55%, #192642 100%);
 }
@@ -103,6 +103,13 @@ summary { cursor: pointer; }
   #tools li { padding: 10px 18px; }
 }
 .benefit-icon { animation: benefit-float 4.5s ease-in-out infinite; }
+.benefit-play { transform-box: fill-box; transform-origin: center; animation: benefit-play-pulse 1.8s ease-in-out infinite; }
+.benefit-live-dot { animation: benefit-live-pulse 1.2s ease-in-out infinite; }
+.benefit-check { stroke-dasharray: 18; stroke-dashoffset: 18; animation: benefit-check-draw 2.8s ease-in-out infinite; }
+.benefit-spark { transform-origin: center; animation: benefit-sparkle 2.5s ease-in-out infinite; }
+@keyframes benefit-play-pulse { 0%, 100% { transform: scale(.9); opacity: .8; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes benefit-live-pulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+@keyframes benefit-check-draw { 0%, 15% { stroke-dashoffset: 18; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -18; } }
 #problem { text-align: center; }
 #problem h2,
 #problem p { margin-left: auto; margin-right: auto; }

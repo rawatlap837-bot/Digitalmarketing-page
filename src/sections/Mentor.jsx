@@ -1,7 +1,7 @@
 import Section from '../components/Section'
 export default function Mentor() {
   return (
-    <Section id="mentor" title="Meet Your Mentor">
+    <Section id="mentor" title="Meet Your" highlight="Mentor">
       <div className="grid overflow-hidden rounded-2xl border border-white/20 bg-[#32165E] md:grid-cols-[.8fr_1.2fr]">
         <div className="flex flex-col items-center justify-center border-b border-white/15 bg-gradient-to-br from-[#513085] to-[#3B1C68] p-3 pb-6 text-center md:border-b-0 md:border-r sm:p-4 sm:pb-7">
           <div className="mb-5 w-full max-w-[420px] overflow-hidden rounded-xl">

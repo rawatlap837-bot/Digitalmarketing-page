@@ -15,9 +15,11 @@ function ListItem({ text, light }) {
 }
 
 export default function ContentBlock({ block, alternate = false }) {
-  const featured = block.id === 'problem'
-  const processLayout = block.id === 'can'
-  const agency = block.id === 'agency'
+  // Keep the data names descriptive so page copy is easier to edit.
+  const { id, title, paragraphs = [], items, modules, chips, notes = [] } = block
+  const featured = id === 'problem'
+  const processLayout = id === 'can'
+  const agency = id === 'agency'
   const moduleIcons = [AiBrain01Icon, Video01Icon, Task01Icon, MoneyBag01Icon, ChartLineData01Icon, Certificate01Icon]
   const agencyIcons = [BriefcaseBusinessIcon, ChartLineData01Icon, MoneyBag01Icon, Location01Icon]
   const agencyIconColors = ['bg-[#EDE8F8] text-[#6346B4]', 'bg-[#E6F2E6] text-[#507B51]', 'bg-[#FBF0E3] text-[#A3682D]', 'bg-[#E6EFF8] text-[#4C6D91]']
@@ -26,14 +28,14 @@ export default function ContentBlock({ block, alternate = false }) {
     : { text: 'text-[#E3DDF0]', badge: 'bg-gradient-to-br from-[#A783F5] to-[#673BCC] text-white', card: 'bg-white/[.08] border-white/15 shadow-[0_12px_30px_rgba(0,0,0,.12)]' }
 
   return (
-    <Section id={block.id} title={block.h} alternate={alternate} light={alternate}>
-      {block.p?.map((text, index) => {
+    <Section id={id} title={title} highlight={block.highlight} alternate={alternate} light={alternate}>
+      {paragraphs.map((text, index) => {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
           : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-[15px] sm:text-lg leading-7 sm:leading-8' : 'text-base sm:text-lg'} max-w-3xl mb-4 sm:mb-5`}><RichText>{text}</RichText></p>
       })}
-      {block.id === 'solution' && <>
+      {id === 'solution' && <>
         <div className="about-highlights my-6 grid grid-cols-3 gap-3">
           {[['6', 'Months'], ['72', 'Live Sessions'], ['AI', 'In Every Class']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
             <span className="block font-['Bricolage_Grotesque'] text-2xl font-bold text-[#EFBF04] sm:text-3xl">{value}</span>
@@ -42,20 +44,21 @@ export default function ContentBlock({ block, alternate = false }) {
         </div>
         <InstituteCarousel />
       </>}
-      {featured && block.l && <ProblemInsights items={block.l} />}
-      {block.id === 'ai' && <AiToolsGrid />}
-      {processLayout && block.l && <ProjectTimeline items={block.l} />}
-      {block.modules && <ol className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {block.modules.map((module, index) => <li key={module.title} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${index === 5 ? 'border-[#C79E2A] bg-[#FFFDF5]' : 'border-[#E3D7EF] bg-white'}`}>
+      {featured && items && <ProblemInsights items={items} />}
+      {id === 'ai' && <AiToolsGrid />}
+      {processLayout && items && <ProjectTimeline items={items} />}
+      {modules && <ol className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {modules.map((module, index) => <li key={module.title} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${index === 5 ? 'border-[#C79E2A] bg-[#FFFDF5]' : 'border-[#E3D7EF] bg-white'}`}>
           <div className="mb-5 flex items-center gap-3">
             <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#8054C3] to-[#502592] text-white shadow-[0_5px_12px_rgba(80,37,146,.18)] transition-transform group-hover:rotate-6"><HugeiconsIcon icon={moduleIcons[index % moduleIcons.length]} size={25} strokeWidth={1.7} /></span>
             <div>
-              <span className="block text-xs font-bold uppercase tracking-widest text-[#8255B4]">Month {index + 1}</span>
-              <span className="text-xs text-[#8C7F99]">Weeks {index * 4 + 1}–{index * 4 + 4}</span>
+              <span className="block text-sm font-bold uppercase tracking-widest text-[#8255B4]">Month {index + 1}</span>
+              <span className="text-sm text-[#8C7F99]">Weeks {index * 4 + 1}–{index * 4 + 4}</span>
             </div>
           </div>
-          <span className="mb-2 text-[10px] font-bold uppercase tracking-[.16em] text-[#8B759F]">{index < 2 ? 'Build Your Foundation' : index < 4 ? 'Put Skills Into Practice' : 'Advance & Apply'}</span>
+          <span className="mb-2 text-xs font-bold uppercase tracking-[.16em] text-[#8B759F]">{index < 2 ? 'Build Your Foundation' : index < 4 ? 'Put Skills Into Practice' : 'Advance & Apply'}</span>
           <h3 className="mb-3 text-lg font-bold leading-snug text-[#302342]">{module.title}</h3>
+          <p className="mb-4 text-sm leading-6 text-[#70647C]">{module.topics}</p>
           <div className="module-tool-logos mb-4 flex flex-wrap justify-start gap-3">
             {[
               [['ChatGPT', 'chatgpt'], ['Canva', 'canva'], ['Perplexity Research', 'perplexity']],
@@ -67,13 +70,13 @@ export default function ContentBlock({ block, alternate = false }) {
             ][index].map(([name, logo]) => <img key={logo} src={`/images/tools/${logo}.${logo === 'looker-studio' ? 'svg' : 'webp'}`} alt={name} title={name} width="32" height="32" loading="lazy" className="h-8 w-8 object-contain" />)}
           </div>
           <div className={`mt-auto rounded-xl border p-3.5 ${index === 5 ? 'border-[#E2C771] bg-[#FFF0B8]' : 'border-[#E8DDF4] bg-[#F6F0FC]'}`}>
-            <span className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#7147B8]"><HugeiconsIcon icon={BriefcaseBusinessIcon} size={15} aria-hidden="true" />What You Build</span>
+            <span className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#7147B8]"><HugeiconsIcon icon={BriefcaseBusinessIcon} size={15} aria-hidden="true" />What You Build</span>
             <span className="text-sm font-medium text-[#49345F]">{module.project}</span>
           </div>
         </li>)}
       </ol>}
-      {!featured && !processLayout && block.id !== 'ai' && block.l && <ul className={`grid gap-5 sm:gap-7 ${processLayout ? 'md:grid-cols-2 lg:gap-x-16 lg:gap-y-7 mt-7 sm:mt-9' : 'md:grid-cols-2 mt-6 sm:mt-8'}`}>
-        {block.l.map((text, index) => <li key={index} className={processLayout
+      {!featured && !processLayout && id !== 'ai' && items && <ul className={`grid gap-5 sm:gap-7 ${processLayout ? 'md:grid-cols-2 lg:gap-x-16 lg:gap-y-7 mt-7 sm:mt-9' : 'md:grid-cols-2 mt-6 sm:mt-8'}`}>
+        {items.map((text, index) => <li key={index} className={processLayout
           ? 'relative flex items-start gap-0 rounded-2xl p-1 transition-transform duration-200 hover:-translate-y-1'
           : agency
             ? `flex gap-3 sm:gap-4 rounded-2xl border border-[#E8E1F0] border-l-4 ${['border-l-[#8870C3] bg-[#FAF8FD]', 'border-l-[#81A95A] bg-[#F7FAF4]', 'border-l-[#C38A4D] bg-[#FCF8F2]', 'border-l-[#6689AE] bg-[#F5F8FC]'][index]} p-4 sm:p-5 shadow-[0_4px_16px_rgba(50,31,78,.05)] hover:shadow-[0_10px_26px_rgba(50,31,78,.10)] transition-all duration-200`
@@ -87,8 +90,8 @@ export default function ContentBlock({ block, alternate = false }) {
           </>}
         </li>)}
       </ul>}
-      {block.chips && <ul className="flex flex-wrap gap-2 sm:gap-3">{block.chips.split(' | ').map(text => <li key={text} className={`px-3 sm:px-4 py-2 rounded-full border text-sm sm:text-base ${alternate ? 'border-[#DCD0EB] bg-[#F7F4FB] text-[#423355]' : 'border-[#A783F5]/25 bg-[#A783F5]/10 text-[#F2ECFF]'}`}>{text}</li>)}</ul>}
-      {block.after?.map((text, index) => <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} max-w-3xl mt-6 sm:mt-8`}><ListItem text={text} light={alternate} /></p>)}
+      {chips && <ul className="flex flex-wrap gap-2 sm:gap-3">{chips.split(' | ').map(text => <li key={text} className={`px-3 sm:px-4 py-2 rounded-full border text-sm sm:text-base ${alternate ? 'border-[#DCD0EB] bg-[#F7F4FB] text-[#423355]' : 'border-[#A783F5]/25 bg-[#A783F5]/10 text-[#F2ECFF]'}`}>{text}</li>)}</ul>}
+      {notes.map((text, index) => <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} max-w-3xl mt-6 sm:mt-8`}><ListItem text={text} light={alternate} /></p>)}
     </Section>
   )
 }

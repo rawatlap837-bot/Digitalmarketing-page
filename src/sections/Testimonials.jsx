@@ -1,4 +1,5 @@
 import Section from '../components/Section'
+import { useEffect, useRef, useState } from 'react'
 
 const placeholders = [
   { name: 'Aarav Sharma', title: 'Learning By Doing', quote: 'The practical labs made each topic easier to understand. Building a website and planning campaigns helped me connect the lessons.' },
@@ -53,7 +54,7 @@ export default function Testimonials() {
     return () => window.clearInterval(timer)
   }, [hovered, focused, reducedMotion])
   return (
-    <Section id="testimonials" title="Student Testimonials" light>
+    <Section id="testimonials" title="Student" highlight="Testimonials" light>
       <p className="mb-6 max-w-2xl text-sm text-[#70647C]">Sample Testimonials For Preview. Names And Reviews Are Illustrative.</p>
       <div className="mx-auto w-full" role="region" aria-roledescription="carousel" aria-label="Student testimonials" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
       <div ref={scrollRef} className="testimonial-scroll overflow-x-auto rounded-2xl" tabIndex={0} aria-label="Scroll testimonials horizontally" onPointerDown={pauseInteraction} onWheel={pauseInteraction} onTouchStart={pauseInteraction} onKeyDown={pauseInteraction}>
@@ -81,5 +82,4 @@ export default function Testimonials() {
     </Section>
   )
 }
-import { useEffect, useRef, useState } from 'react'
 
