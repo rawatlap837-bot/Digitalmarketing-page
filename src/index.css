@@ -143,6 +143,7 @@ summary { cursor: pointer; }
   #audience .primary-cta { font-size: 22px !important; }
 }
 @media (max-width: 639px) {
+  #testimonials h2 { margin-bottom: 16px; }
   #testimonials h2,
   #testimonials > div:not([aria-hidden]) > div > p:first-of-type,
   #mentor h2,
@@ -158,7 +159,9 @@ summary { cursor: pointer; }
 #audience li, #opportunities li { transition: border-color .2s, box-shadow .2s, transform .2s; }
 #audience li:hover { box-shadow: 0 8px 22px rgba(25,8,49,.12); }
 #audience .audience-card { background: linear-gradient(130deg, rgba(255,255,255,.09), rgba(255,255,255,.03)); }
-#opportunities .career-card { background: linear-gradient(135deg, #fff, #FAF7FD); }
+#audience ul .audience-card { flex-direction: column; align-items: center; text-align: center; }
+#opportunities .career-card { background: #F3ECFB; }
+#opportunities .career-card h3 { color: #32165E; }
 #opportunities ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 #opportunities ul .career-card { grid-column: auto; }
 @media (min-width: 1024px) {
@@ -172,6 +175,9 @@ summary { cursor: pointer; }
 }
 @media (max-width: 639px) {
   #audience h2, #opportunities h2 { text-align: center; }
+}
+@media (max-width: 639px) {
+  #problem.page-section h2 { margin-bottom: 18px; }
 }
 .project-timeline::before {
   content: '';
@@ -228,6 +234,9 @@ summary { cursor: pointer; }
   #ai h2, #can h2, #ai > div:not([aria-hidden]) > div > p, #can > div:not([aria-hidden]) > div > p { text-align: center; margin-left: auto; margin-right: auto; }
 }
 #modules h2 { border-bottom: 2px solid #EADCF7; padding-bottom: 18px; }
+@media (max-width: 639px) {
+  #modules h2 { margin-bottom: 12px; padding-bottom: 10px; }
+}
 #modules .module-card .module-tool-logos { justify-content: flex-start; }
 #modules > div:not([aria-hidden]) > div > p strong {
   color: #633596;

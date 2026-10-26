@@ -1,4 +1,6 @@
+import { Fragment } from 'react'
 import ContentBlock from '../components/ContentBlock'
+import FinalCTA from './FinalCTA'
 
 // Page copy lives here. Update the heading, paragraphs, lists, or modules
 // without needing to change the layout component.
@@ -68,8 +70,9 @@ const contentSections = [
 
 export default function ContentSections() {
   return <>
-    {contentSections.map((block, index) => (
-      <ContentBlock key={block.id} block={block} alternate={index % 2 === 0} />
-    ))}
+    {contentSections.map((block, index) => <Fragment key={block.id}>
+      <ContentBlock block={block} alternate={index % 2 === 0} />
+      {block.id === 'ai' && <FinalCTA />}
+    </Fragment>)}
   </>
 }

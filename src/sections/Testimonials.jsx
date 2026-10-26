@@ -55,7 +55,6 @@ export default function Testimonials() {
   }, [hovered, focused, reducedMotion])
   return (
     <Section id="testimonials" title="Student" highlight="Testimonials" light>
-      <p className="mb-6 max-w-2xl text-sm text-[#70647C]">Sample Testimonials For Preview. Names And Reviews Are Illustrative.</p>
       <div className="mx-auto w-full" role="region" aria-roledescription="carousel" aria-label="Student testimonials" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
       <div ref={scrollRef} className="testimonial-scroll overflow-x-auto rounded-2xl" tabIndex={0} aria-label="Scroll testimonials horizontally" onPointerDown={pauseInteraction} onWheel={pauseInteraction} onTouchStart={pauseInteraction} onKeyDown={pauseInteraction}>
       <ul className="flex gap-4">
@@ -65,7 +64,6 @@ export default function Testimonials() {
             <div className="flex min-h-[210px] flex-1 flex-col bg-gradient-to-br from-[#FAF7FE] to-white p-5 sm:p-6">
               <div className="mb-5 flex items-center justify-between gap-3">
                 <span aria-hidden="true" className="grid h-10 w-10 place-items-center rounded-xl bg-[#EEE5FA] text-[#7147B8]"><svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h6v7H6c0 3 1 4 4 5v2c-5-1-7-4-7-9V6a1 1 0 0 1 1-1Zm11 0h6v7h-4c0 3 1 4 4 5v2c-5-1-7-4-7-9V6a1 1 0 0 1 1-1Z" /></svg></span>
-                <span className="rounded-full border border-[#E4D6F0] bg-white px-2.5 py-1 text-[9px] font-semibold text-[#8B739E]">Sample Review</span>
               </div>
               <h3 className="mb-3 font-['Bricolage_Grotesque'] text-lg font-bold text-[#302342]">{title}</h3>
               <p className="text-sm leading-relaxed text-[#70647C]">{quote || 'A space for real student feedback on learning at Creative Adhyayan.'}</p>
@@ -77,7 +75,7 @@ export default function Testimonials() {
         ))}
       </ul>
       </div>
-
+      <p className="mt-3 text-center text-xs text-[#8B739E]">Illustrative examples; replace with verified student reviews.</p>
       </div>
     </Section>
   )

@@ -17,7 +17,7 @@ const questions = [
 
 export default function FAQ() {
   return <Section id="faq" title="Frequently Asked Questions" highlight="(FAQs)">
-    <p className="mb-7 max-w-2xl text-sm text-[#E3D7F1]">Everything You Need To Know Before Taking The Next Step.</p>
+    <p className="mb-7 max-w-2xl text-base font-semibold leading-relaxed text-[#E3D7F1] sm:text-lg">Everything You Need To Know Before Taking The Next Step.</p>
     <div className="faq-list mx-auto grid max-w-4xl gap-3">{questions.map(([question, answer], index) =>
       <details key={question} name="course-faq" open={index === 0} className="group bg-gradient-to-r from-[#2B1E44] to-[#1D162D] border border-[#B69AFF]/15 rounded-xl sm:rounded-2xl p-4 sm:p-5 open:from-[#382657] open:to-[#251A3A] open:border-[#B69AFF]/30 transition-colors">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-main sm:text-base"><span>{question}</span><HugeiconsIcon icon={ArrowDown01Icon} size={19} className="shrink-0 text-[#D0C1FF] transition-transform group-open:rotate-180" aria-hidden="true" /></summary><p className="mt-4 border-t border-current/10 pt-4 text-sm leading-relaxed text-muted"><RichText>{answer}</RichText></p>

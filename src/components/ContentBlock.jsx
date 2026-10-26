@@ -33,7 +33,7 @@ export default function ContentBlock({ block, alternate = false }) {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
-          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : 'text-base sm:text-lg'} max-w-3xl mb-4 sm:mb-5`}><RichText>{text}</RichText></p>
+          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : id === 'solution' ? 'text-lg leading-8 sm:text-lg' : 'text-base sm:text-lg'} ${id === 'modules' ? 'mt-0 max-w-3xl mb-4 sm:mb-5' : 'max-w-3xl mb-4 sm:mb-5'}`}><RichText>{text}</RichText></p>
       })}
       {id === 'solution' && <>
         <div className="about-highlights my-6 grid grid-cols-3 gap-3">
@@ -47,7 +47,7 @@ export default function ContentBlock({ block, alternate = false }) {
       {featured && items && <ProblemInsights items={items} />}
       {id === 'ai' && <AiToolsGrid />}
       {processLayout && items && <ProjectTimeline items={items} />}
-      {modules && <ol className="module-deck mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {modules && <ol className="module-deck mt-5 grid gap-5 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
         {modules.map((module, index) => <li key={module.title} style={{ '--stack-index': index }} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${[
           'border-[#CEB9EB] bg-[#F2EAFB]',
           'border-[#B7D9DD] bg-[#E8F5F6]',

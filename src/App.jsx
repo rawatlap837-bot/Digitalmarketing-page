@@ -4,10 +4,8 @@ import ContentSections from './sections/ContentSections'
 import Roadmap from './sections/Roadmap'
 import Mentor from './sections/Mentor'
 import Testimonials from './sections/Testimonials'
-import Investment from './sections/Investment'
 import Location from './sections/Location'
 import FAQ from './sections/FAQ'
-import FinalCTA from './sections/FinalCTA'
 import Footer from './components/Footer'
 import LeadFormModal from './components/LeadFormModal'
 
@@ -46,10 +44,8 @@ export default function App() {
         <Roadmap />
         <Mentor />
         <Testimonials />
-        <Investment />
         <Location />
         <FAQ />
-        <FinalCTA />
       </main>
       <Footer />
       <LeadFormModal />
