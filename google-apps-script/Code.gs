@@ -2,7 +2,7 @@
  * Receives enquiries from the landing page and saves them in the bound Sheet.
  * Paste this file into Extensions > Apps Script in your Google Sheet.
  */
-const HEADERS = ['Submitted at', 'Full name', 'Phone / WhatsApp', 'Email', 'Current status', 'Page URL'];
+const HEADERS = ['Submitted at', 'Full name', 'Phone / WhatsApp', 'Email', 'Current status'];
 
 function doPost(event) {
   try {
@@ -11,7 +11,6 @@ function doPost(event) {
     const phone = cleanCell(data.phone);
     const email = cleanCell(data.email);
     const status = cleanCell(data.status);
-    const pageUrl = cleanCell(data.source);
 
     if (!name || !phone || !email || !status) {
       return jsonResponse({ ok: false, error: 'Missing required fields.' });
@@ -26,7 +25,7 @@ function doPost(event) {
         sheet.appendRow(HEADERS);
         sheet.setFrozenRows(1);
       }
-      sheet.appendRow([new Date(), name, phone, email, status, pageUrl]);
+      sheet.appendRow([new Date(), name, phone, email, status]);
     } finally {
       lock.releaseLock();
     }

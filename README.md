@@ -26,7 +26,7 @@ Some text supports simple formatting: wrap words in `**double asterisks**` to ma
 
 ## Save enquiries to Google Sheets
 
-The lead form can send its name, phone, email, current status and page URL to a Google Sheet through Apps Script.
+The lead form can send its name, phone, email and current status to a Google Sheet through Apps Script.
 
 1. Create or open the Google Sheet where enquiries should be stored.
 2. In the sheet, open **Extensions → Apps Script**. Replace the editor contents with `google-apps-script/Code.gs`, then save.
