@@ -1,23 +1,19 @@
 import { useState } from 'react'
-import { primaryButtonClass, PrimaryButton } from './Buttons'
+import { primaryButtonClass } from './Buttons'
 
 const formCopy = {
   title: 'Get the Free Syllabus and Seat Details',
   statuses: ['Student', 'Working', 'Business owner', 'Job seeker', 'Housewife'],
   button: 'Book a Free Demo Class',
   privacy: 'We respect your privacy. No spam.',
-  thanksTitle: 'Thanks! Your Details Have Been Received',
-  thanksMessage: 'Our team will contact you with the syllabus, course fees and upcoming demo session details.',
-  thanksButton: 'Book a Free Demo Class',
 }
 
 // Keep the deployed Google Apps Script URL here so every build uses it directly.
 const sheetWebhookUrl = 'https://script.google.com/macros/s/AKfycbykJVs2YIUDnyvm1sq2YKKZMT0d6xVsYA-kvWs0hEP0xyWAjFn1GnsICrycPhu0NTRF/exec'
 
-export default function LeadForm({ id }) {
+export default function LeadForm({ id, onSuccess }) {
   const [values, setValues] = useState({ name: '', phone: '', email: '', status: '' })
   const [errors, setErrors] = useState({})
-  const [submitted, setSubmitted] = useState(false)
   const [isSending, setIsSending] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const inputClass = 'w-full min-h-[50px] rounded-xl bg-[#251D3D] border border-[#55466F] px-4 text-white placeholder:text-[#B8ADC9] focus:border-[#B69AFF] focus:ring-2 focus:ring-[#B69AFF]/20'
@@ -48,21 +44,13 @@ export default function LeadForm({ id }) {
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(values),
       })
-      setSubmitted(true)
+      onSuccess?.()
     } catch {
       setSubmitError('We could not send your details. Please check your connection and try again.')
     } finally {
       setIsSending(false)
     }
   }
-
-  if (submitted) return (
-    <div className="bg-[#171126]/95 text-white border border-white/25 rounded-3xl p-8 shadow-[0_24px_70px_rgba(26,10,53,.32)]" aria-live="polite">
-      <h3 className="text-[28px] mb-3">{formCopy.thanksTitle}</h3>
-      <p className="text-muted mb-6">{formCopy.thanksMessage}</p>
-      <PrimaryButton href="#lead">{formCopy.thanksButton}</PrimaryButton>
-    </div>
-  )
 
   function field(name, label, type = 'text') {
     return <div key={name}>

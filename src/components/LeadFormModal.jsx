@@ -31,7 +31,7 @@ export default function LeadFormModal() {
     }}>
       <div role="dialog" aria-modal="true" aria-label="Get the free syllabus and seat details" className="relative my-auto w-full max-w-xl">
         <button type="button" onClick={() => setOpen(false)} aria-label="Close form" className="absolute -right-2 -top-2 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-[#251D3D] text-2xl text-white shadow-lg hover:bg-[#38285A]">×</button>
-        <LeadForm id="modal" />
+        <LeadForm id="modal" onSuccess={() => setOpen(false)} />
       </div>
     </div>
   )
