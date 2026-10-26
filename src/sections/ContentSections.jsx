@@ -21,7 +21,6 @@ const contentSections = [
     highlight: 'Creative Adhyayan',
     paragraphs: [
       '**Creative Adhyayan** brings you **six months** of practical digital marketing with __AI in every class__.',
-      '**72 live sessions.** Build projects and __a portfolio__, with mentor guidance. Learn **offline or live online**.',
     ],
   },
   {
@@ -51,7 +50,6 @@ const contentSections = [
       'Zapier & Make: Connect forms, CRM and email into marketing workflows, with an n8n demo.',
       'AI Image & Video Demos: Explore Midjourney or Ideogram, plus Runway or Pika, through trainer-led demonstrations.',
     ],
-    notes: ['Practice responsibly. Check facts, protect client data and review AI outputs. Most tools offer free plans or trials; paid tools are demonstrated where student purchases are not needed.'],
   },
   {
     id: 'can',

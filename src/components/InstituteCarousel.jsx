@@ -9,7 +9,7 @@ export default function InstituteCarousel() {
   return (
     <div className="mt-8">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
-        <div><p className="mb-1 text-[9px] font-bold uppercase tracking-[.18em] text-[#BDA1D9]">The Creative Adhyayan Experience</p><h3 className="text-base font-bold text-white sm:text-lg">A Look Inside Our Institute</h3></div>
+        <div><h3 className="text-base font-bold text-white sm:text-lg">A Look Inside Our Institute</h3></div>
         <span className="text-[10px] text-[#C9B7DD] lg:hidden">Swipe To Explore →</span>
       </div>
       <div className="institute-carousel overflow-x-auto pb-2" tabIndex={0} role="region" aria-label="Institute photo carousel">

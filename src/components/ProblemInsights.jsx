@@ -43,7 +43,6 @@ export default function ProblemInsights({ items }) {
         const card = cards[index % cards.length]
         const headingEnd = text.indexOf('. ')
         const heading = headingEnd === -1 ? text : text.slice(0, headingEnd)
-        const description = headingEnd === -1 ? '' : text.slice(headingEnd + 2)
         return <li key={text} style={{ '--benefit-delay': `${index * -1.1}s` }} className="benefit-card group relative isolate overflow-hidden rounded-2xl border border-[#E8E1F0] bg-white p-3.5 shadow-[0_4px_20px_rgba(50,31,78,.04)] transition-all duration-200 hover:border-[#BCA3E5] hover:shadow-[0_12px_28px_rgba(83,49,130,.09)] sm:p-6">
           <span aria-hidden="true" className="benefit-glow pointer-events-none absolute -right-8 -top-8 -z-10 h-32 w-32 rounded-full bg-[#B68CEB]/25 blur-2xl" />
           <div className="relative mb-3 flex items-center justify-center">
@@ -59,7 +58,6 @@ export default function ProblemInsights({ items }) {
             </span>
           </div>
           <h3 className="mb-2 font-['Bricolage_Grotesque'] text-base font-bold sm:text-lg leading-snug text-[#7147B8]">{heading}</h3>
-          <p className="text-sm leading-relaxed text-[#70647C] sm:text-base"><RichText>{description}</RichText></p>
           <span aria-hidden="true" className="benefit-accent pointer-events-none absolute inset-x-0 bottom-0 h-[3px]" />
         </li>
       })}

@@ -33,7 +33,7 @@ export default function ContentBlock({ block, alternate = false }) {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
-          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-[15px] sm:text-lg leading-7 sm:leading-8' : 'text-base sm:text-lg'} max-w-3xl mb-4 sm:mb-5`}><RichText>{text}</RichText></p>
+          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : 'text-base sm:text-lg'} max-w-3xl mb-4 sm:mb-5`}><RichText>{text}</RichText></p>
       })}
       {id === 'solution' && <>
         <div className="about-highlights my-6 grid grid-cols-3 gap-3">
@@ -47,8 +47,15 @@ export default function ContentBlock({ block, alternate = false }) {
       {featured && items && <ProblemInsights items={items} />}
       {id === 'ai' && <AiToolsGrid />}
       {processLayout && items && <ProjectTimeline items={items} />}
-      {modules && <ol className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {modules.map((module, index) => <li key={module.title} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${index === 5 ? 'border-[#C79E2A] bg-[#FFFDF5]' : 'border-[#E3D7EF] bg-white'}`}>
+      {modules && <ol className="module-deck mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {modules.map((module, index) => <li key={module.title} style={{ '--stack-index': index }} className={`module-card group relative flex flex-col overflow-hidden rounded-2xl border p-5 sm:p-6 ${[
+          'border-[#CEB9EB] bg-[#F2EAFB]',
+          'border-[#B7D9DD] bg-[#E8F5F6]',
+          'border-[#E8C6AE] bg-[#F9EEE5]',
+          'border-[#C4DDBE] bg-[#EDF5E9]',
+          'border-[#BDCAE9] bg-[#EAF0FB]',
+          'border-[#C79E2A] bg-[#FFF0B8]',
+        ][index % 6]}`}>
           <div className="mb-5 flex items-center gap-3">
             <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#8054C3] to-[#502592] text-white shadow-[0_5px_12px_rgba(80,37,146,.18)] transition-transform group-hover:rotate-6"><HugeiconsIcon icon={moduleIcons[index % moduleIcons.length]} size={25} strokeWidth={1.7} /></span>
             <div>
@@ -58,7 +65,6 @@ export default function ContentBlock({ block, alternate = false }) {
           </div>
           <span className="mb-2 text-xs font-bold uppercase tracking-[.16em] text-[#8B759F]">{index < 2 ? 'Build Your Foundation' : index < 4 ? 'Put Skills Into Practice' : 'Advance & Apply'}</span>
           <h3 className="mb-3 text-lg font-bold leading-snug text-[#302342]">{module.title}</h3>
-          <p className="mb-4 text-sm leading-6 text-[#70647C]">{module.topics}</p>
           <div className="module-tool-logos mb-4 flex flex-wrap justify-start gap-3">
             {[
               [['ChatGPT', 'chatgpt'], ['Canva', 'canva'], ['Perplexity Research', 'perplexity']],
