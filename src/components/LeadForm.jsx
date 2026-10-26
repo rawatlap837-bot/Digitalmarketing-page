@@ -4,11 +4,11 @@ import { primaryButtonClass, PrimaryButton } from './Buttons'
 const formCopy = {
   title: 'Get the Free Syllabus and Seat Details',
   statuses: ['Student', 'Working', 'Business owner', 'Job seeker', 'Housewife'],
-  button: 'Send Me the Syllabus',
+  button: 'Book a Free Demo Class',
   privacy: 'We respect your privacy. No spam.',
   thanksTitle: 'Thanks! Your Details Have Been Received',
   thanksMessage: 'Our team will contact you with the syllabus, course fees and upcoming demo session details.',
-  thanksButton: 'Book Now',
+  thanksButton: 'Book a Free Demo Class',
 }
 
 // Keep the deployed Google Apps Script URL here so every build uses it directly.
@@ -86,7 +86,7 @@ export default function LeadForm({ id }) {
         <p className="text-bad text-sm" aria-live="polite">{errors.status}</p>
       </div>
       {submitError && <p className="text-sm text-red-300" role="alert">{submitError}</p>}
-      <button type="submit" disabled={isSending} className={`${primaryButtonClass} disabled:cursor-wait disabled:opacity-70`}>{isSending ? 'Sending…' : formCopy.button}</button>
+      <button type="submit" disabled={isSending} className={`${primaryButtonClass} whitespace-nowrap !px-4 !text-lg sm:!px-9 sm:!text-2xl disabled:cursor-wait disabled:opacity-70`}>{isSending ? 'Sending…' : formCopy.button}</button>
       <p className="text-muted text-sm">{formCopy.privacy}</p>
     </form>
   )

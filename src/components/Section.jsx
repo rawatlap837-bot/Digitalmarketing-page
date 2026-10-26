@@ -1,18 +1,6 @@
 import { PrimaryButton } from './Buttons'
 
 export default function Section({ id, title, highlight, aside, light = false, children }) {
-  // Change these labels to update the call-to-action shown under each section.
-  const sectionActions = {
-    problem: 'Start Your Learning Journey',
-    solution: 'Learn With Creative Adhyayan',
-    modules: 'Enquire About The Course',
-    ai: 'Learn AI-Powered Marketing',
-    can: 'Build Your Marketing Portfolio',
-    audience: 'Find Your Learning Path',
-    opportunities: 'Explore Your Next Step',
-    testimonials: 'Start Your Own Journey',
-    faq: 'Ask Our Team',
-  }
   const background = light ? 'bg-white' : 'bg-violet'
   const textColor = light ? 'text-[#251B37]' : 'text-white'
   const contentWidth = aside
@@ -30,7 +18,7 @@ export default function Section({ id, title, highlight, aside, light = false, ch
           {children}
           {id !== 'mentor' && !['invest', 'location'].includes(id) && (
             <div className="mt-8 flex justify-center sm:mt-10">
-              <PrimaryButton className="w-full !px-5 !text-lg min-[420px]:w-auto sm:!text-xl">{sectionActions[id] || 'Enquire Now'}</PrimaryButton>
+              <PrimaryButton className="w-full !px-5 !text-lg min-[420px]:w-auto sm:!text-xl">Book a Free Demo Class</PrimaryButton>
             </div>
           )}
         </div>

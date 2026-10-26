@@ -24,6 +24,6 @@ export default function Location() {
         <a href={`https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`} target="_blank" rel="noopener noreferrer" className="shrink-0 rounded-full border border-[#D6C3E9] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#7147B8] hover:bg-[#F1E8FC]">Get Directions ↗</a>
       </div>
     </div>
-    <div className="mt-6 flex flex-col gap-3 rounded-xl border border-[#E5DAF0] bg-[#FAF7FD] p-4 sm:flex-row sm:items-center sm:justify-center"><PrimaryButton>Speak To Our Team</PrimaryButton></div>
+    <div className="mt-6 flex flex-col items-center gap-3 rounded-xl border border-[#E5DAF0] bg-[#FAF7FD] p-4 sm:flex-row sm:items-center sm:justify-center"><PrimaryButton className="w-full !min-h-[54px] !px-3 !text-lg sm:w-auto sm:!min-h-[62px] sm:!px-9 sm:!text-2xl">Book a Free Demo Class</PrimaryButton></div>
   </Section>
 }

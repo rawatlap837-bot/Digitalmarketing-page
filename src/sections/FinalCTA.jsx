@@ -10,7 +10,7 @@ export default function FinalCTA() {
         <p className="mb-4 inline-flex rounded-full border border-[#EFBF04]/35 bg-[#EFBF04]/10 px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-[#FFD94F] sm:text-sm">Your Next Step Starts Here</p>
         <h2 className="mb-4 font-['Bricolage_Grotesque'] text-3xl font-bold leading-[1.12] text-white sm:text-4xl lg:text-5xl">Build Your Marketing Future.<br className="hidden sm:block" /> <span className="text-[#FFD027]">Enroll Now.</span></h2>
         <p className="mx-auto mb-7 max-w-2xl text-base leading-relaxed text-[#F0E7FA] sm:text-lg">Learn Digital Marketing And AI Through Live Classes, Practical Projects And Mentor Guidance At Creative Adhyayan.</p>
-        <PrimaryButton className="w-full !min-h-[64px] !px-8 !text-xl sm:w-auto sm:!px-12 sm:!text-2xl">Enroll Now</PrimaryButton>
+        <PrimaryButton className="w-full whitespace-nowrap !min-h-[56px] !px-3 !text-lg sm:w-auto sm:!min-h-[64px] sm:!px-12 sm:!text-2xl">Book a Free Demo Class</PrimaryButton>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#DCCBEA] sm:text-base">Send An Enquiry For Course Fees, Batch Availability And Admission Details.</p>
       </div>
     </div>

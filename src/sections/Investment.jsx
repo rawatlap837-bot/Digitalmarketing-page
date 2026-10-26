@@ -23,7 +23,7 @@ export default function Investment() {
         <p className="mb-5 text-sm text-[#D5C3E8]">Get the current course fee, payment options and upcoming batch timings from our team.</p>
         <p className="mb-3 text-xs font-bold uppercase tracking-[.15em] text-[#BDA1D9]">Included In Your Learning Journey</p>
         <ul className="mb-6 space-y-3 text-sm text-[#E3D7F1]">{['Guided Labs & Learning Resources', 'Project Feedback & Capstone Mentoring', 'Templates, Checklists & Prompt Library'].map(item => <li key={item} className="flex items-start gap-2.5"><span aria-hidden="true" className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-[#EFBF04]/10 text-xs text-[#EFBF04]">✓</span><span>{item}</span></li>)}</ul>
-        <div className="mt-auto"><PrimaryButton className="w-full !min-h-[54px] !px-5 !text-base sm:!text-lg">Get Fees & Batch Details</PrimaryButton></div>
+        <div className="mt-auto"><PrimaryButton className="w-full !min-h-[54px] !px-5 !text-base sm:!text-lg">Book a Free Demo Class</PrimaryButton></div>
       </div>
     </div>
     <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-white/10 bg-white/[.04] px-4 py-3 text-xs text-[#D5C3E8]"><span className="font-semibold text-white">Certificate Eligibility</span><span>75% Minimum Attendance</span><span>60% Overall Assessment Score</span></div>
