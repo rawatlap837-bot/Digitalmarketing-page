@@ -32,7 +32,7 @@ The lead form can send its name, phone, email, current status and page URL to a 
 2. In the sheet, open **Extensions → Apps Script**. Replace the editor contents with `google-apps-script/Code.gs`, then save.
 3. Choose **Deploy → New deployment → Web app**. Set **Execute as** to your Google account and **Who has access** to **Anyone**, then deploy and approve Google's authorization prompt.
 4. Copy the deployed web app URL ending in `/exec`.
-5. Create `.env.local` in the project root using `.env.example` as a guide, and set `VITE_GOOGLE_SCRIPT_URL` to that URL. Keep `.env.local` private; it is excluded from Git.
-6. Restart the Vite dev server. For a hosted site, add the same environment variable in the hosting provider's settings and rebuild/redeploy.
+5. The deployed web app URL is set directly in `src/components/LeadForm.jsx`. If you replace the Apps Script deployment, update `sheetWebhookUrl` there.
+6. Deploy the updated site so the production page includes the configured endpoint.
 
 The script appends a header row and then one row per enquiry to the first sheet tab. Apps Script web apps do not expose a readable response to a browser request made without CORS preflight, so the form can confirm that the request was sent but cannot verify that Sheets accepted it. Test with a sample enquiry and check the sheet before collecting live leads.

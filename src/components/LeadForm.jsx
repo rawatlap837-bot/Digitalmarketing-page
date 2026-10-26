@@ -11,8 +11,8 @@ const formCopy = {
   thanksButton: 'Book Now',
 }
 
-// Set this in .env.local after deploying the Google Apps Script web app.
-const sheetWebhookUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL
+// Keep the deployed Google Apps Script URL here so every build uses it directly.
+const sheetWebhookUrl = 'https://script.google.com/macros/s/AKfycbykJVs2YIUDnyvm1sq2YKKZMT0d6xVsYA-kvWs0hEP0xyWAjFn1GnsICrycPhu0NTRF/exec'
 
 export default function LeadForm({ id }) {
   const [values, setValues] = useState({ name: '', phone: '', email: '', status: '' })
