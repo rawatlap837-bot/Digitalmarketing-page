@@ -17,7 +17,7 @@ const heroContent = {
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden pt-0 pb-8 sm:pb-10 lg:pb-8">
-      <div aria-hidden="true" className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#A96BFF_0%,#7828E5_42%,#35105F_78%,#100D1B_100%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#7529D9_0%,#7828E5_42%,#35105F_78%,#100D1B_100%)]" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(236,219,255,.24),transparent_32%,rgba(8,5,18,.18)_76%)]" />
       <div className="relative mb-6 flex justify-center overflow-hidden border-b border-white/15 bg-[radial-gradient(ellipse_at_50%_-70%,rgba(239,191,4,.16),transparent_65%),linear-gradient(105deg,#291145_0%,#3B1B65_48%,#291145_100%)] px-4 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,.1),0_8px_24px_rgba(30,8,66,.2)] sm:mb-8 sm:py-5">
         <span aria-hidden="true" className="absolute inset-0 opacity-[.08] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:24px_24px]" />

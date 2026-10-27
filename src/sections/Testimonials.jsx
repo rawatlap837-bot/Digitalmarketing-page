@@ -75,7 +75,6 @@ export default function Testimonials() {
         ))}
       </ul>
       </div>
-      <p className="mt-3 text-center text-xs text-[#8B739E]">Illustrative examples; replace with verified student reviews.</p>
       </div>
     </Section>
   )
