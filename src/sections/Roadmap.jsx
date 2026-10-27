@@ -12,6 +12,7 @@ const audiences = [
 const careers = [
   [BriefcaseBusinessIcon, 'Digital Marketing Executive', 'Plan and coordinate campaigns across digital channels.'],
   [Video01Icon, 'Social Media Manager', 'Create content plans and manage brand communities.'],
+  [Video01Icon, 'Content Creator', 'Create engaging content for brands and digital platforms.'],
   [ChartLineData01Icon, 'SEO Executive', 'Research keywords and improve website visibility.'],
   [MoneyBag01Icon, 'Performance Marketer', 'Build and optimize Meta and Google ad campaigns.'],
   [Task01Icon, 'Content & Copywriting Specialist', 'Write content, ad copy and marketing emails.'],

@@ -46,7 +46,7 @@ const contentSections = [
     id: 'ai',
     title: 'AI Tools',
     highlight: 'You Will Learn',
-    paragraphs: ['Use AI throughout the course to research, create and automate, with guided practice and human review.'],
+    paragraphs: [],
     items: [
       'ChatGPT & Claude: Draft content, refine prompts and create custom marketing assistants.',
       'Gemini & Perplexity: Research markets, explore audience insights and verify sources.',
