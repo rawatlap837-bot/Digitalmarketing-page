@@ -16,8 +16,8 @@ const contentSections = [
     items: [
       '100% Live Classes. 72 interactive sessions with demos, guided labs and time for questions.',
       'Hands-on Projects. Six practical projects and a final capstone to apply your skills.',
-      'Proof In Your Portfolio. Build a website, campaign plans, a dashboard and automation workflows.',
-      'Personal Mentor Feedback. Get written project reviews and one-to-one capstone guidance.',
+      '100% Practical Training. Learn through guided, hands-on projects and real-world practice.',
+      '100% Job Assistance. Get career guidance, portfolio support and help preparing for interviews.',
     ],
   },
   {
