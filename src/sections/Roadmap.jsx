@@ -30,7 +30,7 @@ export default function Roadmap() {
       </ul>
       <div className="audience-entry mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[#EFBF04]/30 bg-[#32165E]/60 px-4 py-3">
         <span className="text-sm font-bold text-[#EFBF04] sm:text-base">You Can Start Here</span>
-        {['No Marketing Experience Needed', 'Basic Computer Skills', '3-4 Practice Hours Per Week'].map(item => <span key={item} className="flex items-center gap-2 text-sm text-[#E3D7F1] sm:text-base"><span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EFBF04]" />{item}</span>)}
+        {['Basic Computer Skills', '3-4 Practice Hours Per Week'].map(item => <span key={item} className="flex items-center gap-2 text-sm text-[#E3D7F1] sm:text-base"><span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EFBF04]" />{item}</span>)}
       </div>
     </Section>
     <Section id="opportunities" title="Career Opportunities" highlight="After the Course" light>

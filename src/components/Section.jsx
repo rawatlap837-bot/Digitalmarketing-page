@@ -12,8 +12,11 @@ export default function Section({ id, title, highlight, aside, light = false, hi
       <div aria-hidden="true" className={`pointer-events-none absolute inset-0 -z-10 ${background}`} />
       <div className={`mx-auto max-w-[1200px] px-5 sm:px-7 lg:px-10 ${contentWidth}`}>
         <div>
-          {!hideHeading && <h2 className={`mb-7 max-w-3xl text-[30px] leading-[1.12] sm:mb-10 sm:text-[36px] lg:mb-12 lg:text-[42px] ${light ? 'text-[#432078]' : 'text-white'}`}>
-            {highlight ? <>{title}<span className="font-['Bricolage_Grotesque'] text-[#EFBF04]"> {highlight}</span></> : title}
+          {!hideHeading && <h2 className={`mb-7 max-w-3xl text-[30px] leading-[1.12] sm:mb-10 sm:text-[36px] lg:mb-12 lg:text-[42px] ${id === 'can' ? 'text-[19px] sm:text-[36px] lg:text-[42px]' : ''} ${light ? 'text-[#432078]' : 'text-white'}`}>
+            {highlight ? id === 'can'
+              ? <><span className="whitespace-nowrap">100% Practical Projects</span><span className="block sm:inline"> &amp; Live Training</span></>
+              : <>{title}<span className={`font-['Bricolage_Grotesque'] ${light ? 'text-[#502F81]' : 'text-[#EFBF04]'}`}> {highlight}</span></>
+              : title}
           </h2>}
           {children}
           {!hideCta && id !== 'mentor' && !['invest', 'location'].includes(id) && (
