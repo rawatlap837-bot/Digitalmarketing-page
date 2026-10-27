@@ -16,7 +16,7 @@ function ListItem({ text, light }) {
 
 export default function ContentBlock({ block, alternate = false }) {
   // Keep the data names descriptive so page copy is easier to edit.
-  const { id, title, paragraphs = [], items, modules, chips, notes = [] } = block
+  const { id, title, paragraphs = [], items, modules, chips, notes = [], hideHeading = false, hideParagraphs = false, hideCta = false } = block
   const featured = id === 'problem'
   const processLayout = id === 'can'
   const agency = id === 'agency'
@@ -28,8 +28,8 @@ export default function ContentBlock({ block, alternate = false }) {
     : { text: 'text-[#E3DDF0]', badge: 'bg-gradient-to-br from-[#A783F5] to-[#673BCC] text-white', card: 'bg-white/[.08] border-white/15 shadow-[0_12px_30px_rgba(0,0,0,.12)]' }
 
   return (
-    <Section id={id} title={title} highlight={block.highlight} alternate={alternate} light={alternate}>
-      {paragraphs.map((text, index) => {
+    <Section id={id} title={title} highlight={block.highlight} alternate={alternate} light={alternate} hideHeading={hideHeading} hideCta={hideCta}>
+      {!hideParagraphs && paragraphs.map((text, index) => {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
@@ -37,7 +37,7 @@ export default function ContentBlock({ block, alternate = false }) {
       })}
       {id === 'solution' && <>
         <div className="about-highlights my-6 grid grid-cols-3 gap-3">
-          {[['6', 'Months'], ['72', 'Live Sessions'], ['AI', 'In Every Class']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
+          {[['6', 'Months'], ['72', 'Live Sessions'], ['108', 'In Every Class']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
             <span className="block font-['Bricolage_Grotesque'] text-2xl font-bold text-[#EFBF04] sm:text-3xl">{value}</span>
             <span className="mt-1 block text-[10px] text-[#D5C3E8] sm:text-xs">{label}</span>
           </div>)}

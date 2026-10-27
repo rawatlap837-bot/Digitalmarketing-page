@@ -1,6 +1,6 @@
 import { PrimaryButton } from './Buttons'
 
-export default function Section({ id, title, highlight, aside, light = false, children }) {
+export default function Section({ id, title, highlight, aside, light = false, hideHeading = false, hideCta = false, children }) {
   const background = light ? 'bg-white' : 'bg-violet'
   const textColor = light ? 'text-[#251B37]' : 'text-white'
   const contentWidth = aside
@@ -12,11 +12,11 @@ export default function Section({ id, title, highlight, aside, light = false, ch
       <div aria-hidden="true" className={`pointer-events-none absolute inset-0 -z-10 ${background}`} />
       <div className={`mx-auto max-w-[1200px] px-5 sm:px-7 lg:px-10 ${contentWidth}`}>
         <div>
-          <h2 className={`mb-7 max-w-3xl text-[30px] leading-[1.12] sm:mb-10 sm:text-[36px] lg:mb-12 lg:text-[42px] ${light ? 'text-[#432078]' : 'text-white'}`}>
+          {!hideHeading && <h2 className={`mb-7 max-w-3xl text-[30px] leading-[1.12] sm:mb-10 sm:text-[36px] lg:mb-12 lg:text-[42px] ${light ? 'text-[#432078]' : 'text-white'}`}>
             {highlight ? <>{title}<span className="font-['Bricolage_Grotesque'] text-[#EFBF04]"> {highlight}</span></> : title}
-          </h2>
+          </h2>}
           {children}
-          {id !== 'mentor' && !['invest', 'location'].includes(id) && (
+          {!hideCta && id !== 'mentor' && !['invest', 'location'].includes(id) && (
             <div className="mt-8 flex justify-center sm:mt-10">
               <PrimaryButton className="w-full !px-5 !text-lg min-[420px]:w-auto sm:!text-xl">Book a Free Demo Class</PrimaryButton>
             </div>

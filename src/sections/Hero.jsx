@@ -33,11 +33,11 @@ export default function Hero() {
         <p className="mx-auto mb-5 w-fit max-w-full rounded-full border border-[#EFBF04]/50 bg-[#291145]/65 px-5 py-2.5 font-['Bricolage_Grotesque'] text-sm font-bold leading-snug text-white shadow-[0_8px_24px_rgba(18,5,38,.2)] sm:mb-6 sm:px-7 sm:py-3 sm:text-base">
           Join a <span className="text-[#FFD027]">Free Demo Session</span> Every Saturday
         </p>
-        <p className="mx-auto mb-7 max-w-3xl text-base leading-relaxed text-white/90 sm:mb-9 sm:text-xl">
+        <p className="mx-auto mb-7 max-w-3xl text-lg leading-relaxed text-white/90 sm:mb-9 sm:text-xl">
           Become an <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">AI-Powered Digital &amp; Performance Marketer</strong> in just 6 months. Unlock <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">exciting job opportunities</strong>.
         </p>
         <div className="mb-4 flex justify-center sm:mb-5"><PrimaryButton className="w-full min-[520px]:w-auto">{heroContent.primaryButton}</PrimaryButton></div>
-        <p className="text-white/75 text-sm sm:text-base mb-7 sm:mb-9"><RichText>{heroContent.note}</RichText></p>
+        <p className="text-white/75 text-base sm:text-base mb-7 sm:mb-9"><RichText>{heroContent.note}</RichText></p>
         <ul className="mx-auto grid w-full max-w-lg grid-cols-2 gap-2 sm:gap-3">{heroContent.trustPoints.map((item, index) => {
           const trustIcons = [Task01Icon, BriefcaseBusinessIcon, Certificate01Icon, Video01Icon, Task01Icon]
           return <li key={item} className={`flex min-w-0 items-center justify-center gap-1.5 rounded-full border border-white/25 bg-[#160B2A]/35 px-2 py-2 text-xs font-semibold leading-tight text-white shadow-[0_8px_24px_rgba(10,4,25,.12)] backdrop-blur sm:gap-2 sm:px-4 sm:text-base ${index === 4 ? 'col-span-2 mx-auto w-1/2' : ''}`}><HugeiconsIcon icon={trustIcons[index]} size={17} className="shrink-0 text-[#D0C1FF] sm:h-[18px] sm:w-[18px]" aria-hidden="true" /><span className="whitespace-nowrap">{item}</span></li>

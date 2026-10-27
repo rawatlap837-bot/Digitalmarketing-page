@@ -9,6 +9,9 @@ const contentSections = [
     id: 'problem',
     title: 'Why Choose',
     highlight: 'Us',
+    hideHeading: true,
+    hideParagraphs: true,
+    hideCta: true,
     paragraphs: ['Live training. Practical work. A portfolio that shows what you can do.'],
     items: [
       '100% Live Classes. 72 interactive sessions with demos, guided labs and time for questions.',
