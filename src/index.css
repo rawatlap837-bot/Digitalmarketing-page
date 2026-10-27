@@ -111,6 +111,7 @@ summary { cursor: pointer; }
 @keyframes benefit-live-pulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 @keyframes benefit-check-draw { 0%, 15% { stroke-dashoffset: 18; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -18; } }
 #problem { text-align: center; }
+#problem > div[aria-hidden] { background: #F3ECFC; }
 #problem h2,
 #problem p { margin-left: auto; margin-right: auto; }
 #solution strong { color: #fff; }

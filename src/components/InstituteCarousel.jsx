@@ -1,11 +1,15 @@
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Location01Icon } from '@hugeicons/core-free-icons'
 
-// Add institute photos here: { src: '/images/institute/photo.webp', alt: 'Description' }.
-const institutePhotos = []
+const institutePhotos = [
+  { src: '/images/file_000000003034822fa73bc34086bbe19c.webp', alt: 'Creative Adhyayan institute storefront' },
+  { src: '/images/file_00000000bda8820bb42a14908c04f8a7.webp', alt: 'Students attending a digital marketing class at Creative Adhyayan' },
+  { src: '/images/file_00000000e7bc81f6bb5f7fbf64b6202d.webp', alt: 'Creative Adhyayan institute building and entrance' },
+  { src: '/images/Screenshot_20260929_135254_Gallery.jpg.jpeg', alt: 'Students meeting with mentors at Creative Adhyayan' },
+]
 
 export default function InstituteCarousel() {
-  const slides = institutePhotos.length ? institutePhotos : Array.from({ length: 3 }, (_, i) => ({ placeholder: true, alt: `Institute Photo ${i + 1}` }))
+  const slides = [...institutePhotos, ...Array.from({ length: Math.max(0, 3 - institutePhotos.length) }, (_, i) => ({ placeholder: true, alt: `Institute Photo ${institutePhotos.length + i + 1}` }))]
   return (
     <div className="mt-8">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-2">

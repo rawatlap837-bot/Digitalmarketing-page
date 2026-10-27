@@ -37,7 +37,7 @@ export default function ContentBlock({ block, alternate = false }) {
       })}
       {id === 'solution' && <>
         <div className="about-highlights my-6 grid grid-cols-3 gap-3">
-          {[['6', 'Months'], ['72', 'Live Sessions'], ['108', 'In Every Class']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
+          {[['6', 'Months'], ['72', 'Live Sessions'], ['108', 'Hours']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
             <span className="block font-['Bricolage_Grotesque'] text-2xl font-bold text-[#EFBF04] sm:text-3xl">{value}</span>
             <span className="mt-1 block text-[10px] text-[#D5C3E8] sm:text-xs">{label}</span>
           </div>)}
