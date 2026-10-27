@@ -292,7 +292,7 @@ summary { cursor: pointer; }
 #solution > div[aria-hidden] {
   background: linear-gradient(135deg, #432078 0%, #32165E 100%);
 }
-.institute-carousel { scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; touch-action: pan-y; }
+.institute-carousel { scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
 .institute-carousel::-webkit-scrollbar { display: none; }
 @media (min-width: 640px) {
   #solution > div:not([aria-hidden]) { padding: 36px 28px; }
