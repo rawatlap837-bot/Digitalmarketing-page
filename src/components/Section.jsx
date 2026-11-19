@@ -21,7 +21,7 @@ export default function Section({ id, title, highlight, aside, light = false, hi
           {children}
           {!hideCta && id !== 'mentor' && !['invest', 'location'].includes(id) && (
             <div className="mt-8 flex justify-center sm:mt-10">
-              <PrimaryButton className="w-full !px-5 !text-lg min-[420px]:w-auto sm:!text-xl">Book a Free Demo Class</PrimaryButton>
+              <PrimaryButton className="w-full !px-5 !text-lg min-[420px]:w-auto sm:!text-xl">Book your slot now</PrimaryButton>
             </div>
           )}
         </div>

@@ -12,24 +12,24 @@ function BenefitAnimation({ type }) {
   return (
     <svg viewBox="0 0 48 48" className="h-8 w-8 text-[#7147B8] sm:h-10 sm:w-10" fill="none" aria-hidden="true">
       {type === 'live-class' && <>
-        <rect x="6" y="9" width="36" height="25" rx="5" stroke="currentColor" strokeWidth="2.5" />
+        <rect x="6" y="9" width="36" height="25" rx="5" stroke="#EFBF04" strokeWidth="2.5" />
         <path d="m21 17 9 4.5-9 4.5V17Z" fill="currentColor" className="benefit-play" />
-        <path d="M17 40h14M24 34v6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M17 40h14M24 34v6" stroke="#EFBF04" strokeWidth="2.5" strokeLinecap="round" />
         <circle cx="37" cy="14" r="2" fill="#EFBF04" className="benefit-live-dot" />
       </>}
       {type === 'project-work' && <>
-        <rect x="8" y="8" width="32" height="34" rx="5" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M17 18h14M17 25h14M17 32h8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <rect x="8" y="8" width="32" height="34" rx="5" stroke="#EFBF04" strokeWidth="2.5" />
+        <path d="M17 18h14M17 25h14M17 32h8" stroke="#EFBF04" strokeWidth="2.5" strokeLinecap="round" />
         <path d="m30 34 3 3 7-8" stroke="#EFBF04" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="benefit-check" />
       </>}
       {type === 'portfolio' && <>
-        <rect x="6" y="15" width="36" height="25" rx="5" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M17 15v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M6 25h36M20 25v4h8v-4" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+        <rect x="6" y="15" width="36" height="25" rx="5" stroke="#EFBF04" strokeWidth="2.5" />
+        <path d="M17 15v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M6 25h36M20 25v4h8v-4" stroke="#EFBF04" strokeWidth="2.5" strokeLinejoin="round" />
         <path d="m33 8 .8 2.2L36 11l-2.2.8L33 14l-.8-2.2L30 11l2.2-.8L33 8Z" fill="#EFBF04" className="benefit-spark" />
       </>}
       {type === 'mentor-feedback' && <>
-        <path d="M7 10a4 4 0 0 1 4-4h26a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H21l-9 7v-7h-1a4 4 0 0 1-4-4V10Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-        <path d="M15 16h18M15 22h12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M7 10a4 4 0 0 1 4-4h26a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H21l-9 7v-7h-1a4 4 0 0 1-4-4V10Z" stroke="#EFBF04" strokeWidth="2.5" strokeLinejoin="round" />
+        <path d="M15 16h18M15 22h12" stroke="#EFBF04" strokeWidth="2.5" strokeLinecap="round" />
         <path d="m28 29 3 3 6-7" stroke="#EFBF04" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="benefit-check" />
       </>}
     </svg>

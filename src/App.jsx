@@ -15,7 +15,7 @@ export default function App() {
     // the visitor prefers reduced motion or the browser lacks this feature.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
 
-    const revealTargets = document.querySelectorAll('main > section > div:not([aria-hidden]), main .page-section > div:not([aria-hidden]), footer')
+    const revealTargets = document.querySelectorAll('main > section > div:not([aria-hidden]), main .page-section > div:not([aria-hidden]), #audience .audience-card, #audience .audience-entry, footer')
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

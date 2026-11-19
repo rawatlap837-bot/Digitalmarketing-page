@@ -53,6 +53,20 @@ input, select, button, a { -webkit-tap-highlight-color: transparent; }
   28% { opacity: .85; }
   52%, 100% { left: 125%; opacity: 0; }
 }
+.hero-demo-track {
+  display: flex;
+  width: max-content;
+  animation: hero-demo-marquee 7s linear infinite;
+}
+.hero-demo-item { flex: 0 0 auto; padding-right: 2rem; white-space: nowrap; }
+@keyframes hero-demo-marquee {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-demo-track { animation: none; }
+  .hero-demo-item + .hero-demo-item { display: none; }
+}
 @media (max-width: 639px) {
   body { font-size: 16px; line-height: 1.6; }
   h1 { letter-spacing: -.04em; }
@@ -161,6 +175,21 @@ summary { cursor: pointer; }
 #audience li:hover { box-shadow: 0 8px 22px rgba(25,8,49,.12); }
 #audience .audience-card { background: linear-gradient(130deg, rgba(255,255,255,.09), rgba(255,255,255,.03)); }
 #audience ul .audience-card { flex-direction: column; align-items: center; text-align: center; }
+#audience .audience-card.page-reveal {
+  opacity: 0;
+  translate: 0 16px;
+  transition: opacity .55s ease, translate .55s cubic-bezier(.2,.7,.2,1);
+}
+#audience .audience-card.page-reveal.is-revealed { opacity: 1; translate: 0 0; }
+#audience .audience-card:nth-child(2).page-reveal { transition-delay: 70ms; }
+#audience .audience-card:nth-child(3).page-reveal { transition-delay: 140ms; }
+#audience .audience-card:nth-child(4).page-reveal { transition-delay: 210ms; }
+#audience .audience-entry.page-reveal {
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity .55s ease 280ms, translate .55s ease 280ms;
+}
+#audience .audience-entry.page-reveal.is-revealed { opacity: 1; translate: 0 0; }
 #opportunities .career-card { background: #F3ECFB; }
 #opportunities .career-card h3 { color: #32165E; }
 #opportunities ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -176,6 +205,14 @@ summary { cursor: pointer; }
 }
 @media (max-width: 639px) {
   #audience h2, #opportunities h2 { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #audience .audience-card.page-reveal,
+  #audience .audience-entry.page-reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
 }
 @media (max-width: 639px) {
   #problem.page-section h2 { margin-bottom: 18px; }

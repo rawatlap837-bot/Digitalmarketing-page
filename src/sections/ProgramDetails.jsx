@@ -10,7 +10,7 @@ const programDetails = [
       'Offline or online: same syllabus, same certificate. Missed a class? Watch the recording, shared within 24 hours',
       'Written feedback on every project from your trainer',
       'Doubt support through a student group and a weekly doubt-clearing slot',
-      'Mentor review one-to-one before your capstone',
+      'Mentor review one-to-one before your final project',
       'Small batches: 15 to 25 students offline, 20 to 30 online, with a support assistant',
     ],
   },
@@ -25,7 +25,7 @@ const programDetails = [
       'A working funnel demo',
       'An analytics dashboard and client-style report',
       'An AI automation workflow',
-      'A full capstone marketing system and 90-day growth plan',
+      'A complete marketing system and 90-day growth plan',
     ],
   },
   {
@@ -48,7 +48,7 @@ const programDetails = [
   {
     id: 'cert',
     title: 'Earn a Certificate That Reflects Real Work',
-    paragraphs: ['Graded on assignments, monthly tests, a panel-reviewed capstone and a final exam. Score 85% or above for Distinction, 75% to 84% for Merit.'],
+    paragraphs: ['Graded on assignments, monthly tests, a panel-reviewed final project and a final exam. Score 85% or above for Distinction, 75% to 84% for Merit.'],
   },
   {
     id: 'trainers',

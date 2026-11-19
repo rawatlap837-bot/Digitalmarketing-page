@@ -36,12 +36,6 @@ export default function ContentBlock({ block, alternate = false }) {
           : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : id === 'solution' ? 'text-lg leading-8 sm:text-lg' : 'text-base sm:text-lg'} ${id === 'modules' ? 'mt-0 max-w-3xl mb-4 sm:mb-5' : 'max-w-3xl mb-4 sm:mb-5'}`}><RichText>{text}</RichText></p>
       })}
       {id === 'solution' && <>
-        <div className="about-highlights my-6 grid grid-cols-3 gap-3">
-          {[['6', 'Months'], ['72', 'Live Sessions'], ['108', 'Hours']].map(([value, label]) => <div key={label} className="border-l-2 border-[#EFBF04]/60 pl-3 sm:pl-5">
-            <span className="block font-['Bricolage_Grotesque'] text-2xl font-bold text-[#EFBF04] sm:text-3xl">{value}</span>
-            <span className="mt-1 block text-[10px] text-[#D5C3E8] sm:text-xs">{label}</span>
-          </div>)}
-        </div>
         <InstituteCarousel />
       </>}
       {featured && items && <ProblemInsights items={items} />}

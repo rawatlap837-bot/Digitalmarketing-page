@@ -7,9 +7,9 @@ import { BriefcaseBusinessIcon, Certificate01Icon, Task01Icon, Video01Icon } fro
 // Edit the text below to update the main heading and course highlights.
 const heroContent = {
   eyebrow: 'Run by a Real Marketing Agency',
-  title: 'Best AI Digital Marketing Course in Sangam Vihar',
-  description: 'Become an AI-Powered Digital & Performance Marketer in just 6 months. Unlock exciting job opportunities.',
-  primaryButton: 'Book a Free Demo Class',
+  title: 'Best AI Digital Marketing Institute in Sangam Vihar',
+  description: 'Become an ai powered digital marketer in just 6 months and get high paying job opportunities',
+  primaryButton: 'Book your slot now',
   note: '',
   trustPoints: ['Practical Training', 'Job Assistance', 'Industry Certificate', 'Live Projects', 'EMI Fee Payment'],
 }
@@ -25,13 +25,17 @@ export default function Hero() {
         <span className="relative font-['Bricolage_Grotesque'] text-lg font-bold tracking-wide text-white sm:text-xl">Run by a <span className="text-[#FFD027]">Real Marketing Agency</span></span>
       </div>
       <div className="relative mx-auto max-w-5xl px-4 sm:px-8 lg:px-10 text-center">
-        <h1 className="mx-auto mb-1.5 max-w-5xl text-[clamp(2.5rem,10vw,5.5rem)] font-bold leading-[1.04] text-white drop-shadow-[0_4px_24px_rgba(22,5,52,.35)] sm:mb-2">
+        <h1 className="mx-auto mb-1.5 max-w-5xl text-[clamp(2.3rem,10vw,5.5rem)] font-bold leading-[1.04] text-white drop-shadow-[0_4px_24px_rgba(22,5,52,.35)] sm:mb-2">
           {heroContent.title.split(/(Digital Marketing|Sangam Vihar)/i).map((part, index) => /digital marketing|sangam vihar/i.test(part)
             ? <span key={index} className="font-['Bricolage_Grotesque'] font-bold text-[#EFBF04]">{part}</span>
             : part)}
         </h1>
-        <p className="mx-auto mb-5 w-fit max-w-full rounded-full border border-[#EFBF04]/50 bg-[#291145]/65 px-5 py-2.5 font-['Bricolage_Grotesque'] text-sm font-bold leading-snug text-white shadow-[0_8px_24px_rgba(18,5,38,.2)] sm:mb-6 sm:px-7 sm:py-3 sm:text-base">
-          Join a <span className="text-[#FFD027]">Free Demo Session</span> Every Saturday
+        <p className="hero-demo-badge relative isolate mx-auto mb-2 w-full max-w-[400px] overflow-hidden rounded-full border border-[#EFBF04]/50 bg-[#291145]/65 px-5 py-2.5 font-['Bricolage_Grotesque'] text-sm font-bold leading-snug text-white shadow-[0_8px_24px_rgba(18,5,38,.2)] sm:mb-6 sm:px-7 sm:py-3 sm:text-base">
+          <span className="sr-only">Join a Free Demo Session Every Saturday</span>
+          <span aria-hidden="true" className="hero-demo-track">
+            <span className="hero-demo-item">Join a <span className="text-[#FFD027]">Free Demo Session</span> Every Saturday</span>
+            <span className="hero-demo-item">Join a <span className="text-[#FFD027]">Free Demo Session</span> Every Saturday</span>
+          </span>
         </p>
         <p className="mx-auto mb-7 max-w-3xl text-lg leading-relaxed text-white/90 sm:mb-9 sm:text-xl">
           Become an <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">AI-Powered Digital &amp; Performance Marketer</strong> in just 6 months. Unlock <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">exciting job opportunities</strong>.

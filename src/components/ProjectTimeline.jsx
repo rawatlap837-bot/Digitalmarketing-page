@@ -38,7 +38,7 @@ export default function ProjectTimeline({ items }) {
               <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-[.14em] text-[#8255B4] sm:text-xs">Month {index + 1}</span>
                 <span className="text-[10px] text-[#9786A5] sm:text-xs">Weeks {index * 4 + 1}–{index * 4 + 4}</span>
-                {final && <span className="rounded-full bg-[#F5D56A] px-2 py-0.5 text-[10px] font-bold text-[#79571A]">Final Capstone</span>}
+                {final && <span className="rounded-full bg-[#F5D56A] px-2 py-0.5 text-[10px] font-bold text-[#79571A]">Final Project</span>}
               </div>
               <h3 className="text-base font-bold leading-snug text-[#302342] sm:text-xl">{title}</h3>
             </div>

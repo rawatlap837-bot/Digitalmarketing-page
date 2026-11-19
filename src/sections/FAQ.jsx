@@ -11,7 +11,7 @@ const questions = [
   ['Do I need to buy paid AI tools?', 'Most tools offer free plans or trials. Paid tools are demonstrated where students do not need to purchase them.'],
   ['How much practice is needed?', 'Allow about 3 to 4 hours each week outside class for assignments and practice.'],
   ['What are the course fees?', 'Submit an enquiry for the current fee, available payment options and batch details.'],
-  ['How do I earn the certificate?', 'Meet the minimum 75% attendance requirement and achieve at least 60% overall across assignments, reviews, the capstone and final exam.'],
+  ['How do I earn the certificate?', 'Meet the minimum 75% attendance requirement and achieve at least 60% overall across assignments, reviews, the final project and final exam.'],
   ['Does the course include career preparation?', 'Yes. The syllabus covers portfolio building, resume and LinkedIn preparation, interviews, pricing, proposals and client pitching.'],
 ]
 

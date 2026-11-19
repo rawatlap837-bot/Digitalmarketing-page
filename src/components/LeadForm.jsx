@@ -4,7 +4,7 @@ import { primaryButtonClass } from './Buttons'
 const formCopy = {
   title: 'Get the Free Syllabus and Seat Details',
   statuses: ['Student', 'Working', 'Business owner', 'Job seeker', 'Housewife'],
-  button: 'Book a Free Demo Class',
+  button: 'Book your slot now',
   privacy: 'We respect your privacy. No spam.',
 }
 
@@ -32,7 +32,7 @@ export default function LeadForm({ id, onSuccess }) {
   const [submissionId, setSubmissionId] = useState(createSubmissionId)
 
   const inputClass =
-    'w-full min-h-[50px] rounded-xl bg-[#251D3D] border border-[#55466F] px-4 text-white placeholder:text-[#B8ADC9] focus:border-[#B69AFF] focus:ring-2 focus:ring-[#B69AFF]/20'
+    'w-full min-h-[52px] rounded-xl bg-[#211833] border border-white/15 px-4 text-base text-white placeholder:text-[#B8ADC9] transition-colors duration-200 focus:border-[#EFBF04] focus:outline-none focus:ring-2 focus:ring-[#EFBF04]/20'
 
   async function submit(event) {
     event.preventDefault()
@@ -48,7 +48,7 @@ export default function LeadForm({ id, onSuccess }) {
       nextErrors.phone = 'Please enter a valid phone number.'
     }
 
-    if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) {
+    if (values.email.trim() && !/^\S+@\S+\.\S+$/.test(values.email.trim())) {
       nextErrors.email = 'Please enter a valid email address.'
     }
 
@@ -120,7 +120,7 @@ export default function LeadForm({ id, onSuccess }) {
   function field(name, label, type = 'text') {
     return (
       <div key={name}>
-        <label htmlFor={`${id}-${name}`} className="block text-sm mb-1">
+        <label htmlFor={`${id}-${name}`} className="mb-1.5 block text-sm font-semibold text-[#E5DDF0]">
           {label}
         </label>
         <input
@@ -150,16 +150,20 @@ export default function LeadForm({ id, onSuccess }) {
     <form
       onSubmit={submit}
       noValidate
-      className="bg-gradient-to-br from-[#2B1D47] to-[#171126] text-white backdrop-blur border border-[#B69AFF]/20 rounded-2xl sm:rounded-3xl p-5 sm:p-8 grid gap-3 sm:gap-4 shadow-[0_24px_70px_rgba(26,10,53,.32)]"
+      className="grid gap-4 rounded-[24px] border border-white/10 bg-gradient-to-br from-[#30204D] to-[#171126] p-5 text-white shadow-[0_24px_70px_rgba(26,10,53,.4)] sm:gap-5 sm:p-8"
     >
-      <h3 className="text-[24px]">{formCopy.title}</h3>
+      <div className="pr-8">
+        <p className="mb-1 text-[11px] font-bold uppercase tracking-[.14em] text-[#FFD027]">Free course enquiry</p>
+        <h3 className="text-2xl font-bold leading-tight text-white">{formCopy.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-[#C8BEDA]">Share your details to get the syllabus and current batch information.</p>
+      </div>
 
       {field('name', 'Full name')}
       {field('phone', 'Phone or WhatsApp', 'tel')}
-      {field('email', 'Email', 'email')}
+      {field('email', 'Email (optional)', 'email')}
 
       <div>
-        <label htmlFor={`${id}-status`} className="block text-sm mb-1">
+        <label htmlFor={`${id}-status`} className="mb-1.5 block text-sm font-semibold text-[#E5DDF0]">
           Current status
         </label>
         <select

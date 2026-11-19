@@ -29,8 +29,8 @@ export default function LeadFormModal() {
     <div className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-[#100D1B]/75 p-4 backdrop-blur-sm" onMouseDown={event => {
       if (event.target === event.currentTarget) setOpen(false)
     }}>
-      <div role="dialog" aria-modal="true" aria-label="Get the free syllabus and seat details" className="relative my-auto w-full max-w-xl">
-        <button type="button" onClick={() => setOpen(false)} aria-label="Close form" className="absolute -right-2 -top-2 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-[#251D3D] text-2xl text-white shadow-lg hover:bg-[#38285A]">×</button>
+      <div role="dialog" aria-modal="true" aria-label="Get the free syllabus and seat details" className="relative my-auto w-full max-w-md">
+        <button type="button" onClick={() => setOpen(false)} aria-label="Close form" className="absolute right-3 top-3 z-10 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-2xl text-white transition-colors hover:bg-white/15">×</button>
         <LeadForm id="modal" onSuccess={() => setOpen(false)} />
       </div>
     </div>
