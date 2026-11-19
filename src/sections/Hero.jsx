@@ -8,7 +8,7 @@ import { BriefcaseBusinessIcon, Certificate01Icon, Task01Icon, Video01Icon } fro
 const heroContent = {
   eyebrow: 'Run by a Real Marketing Agency',
   title: 'Best AI Digital Marketing Institute in Sangam Vihar',
-  description: 'Become an ai powered digital marketer in just 6 months and get high paying job opportunities',
+  description: 'Become an AI-powered digital marketer in just 6 months and get high-paying job opportunities',
   primaryButton: 'Book your slot now',
   note: '',
   trustPoints: ['Practical Training', 'Job Assistance', 'Industry Certificate', 'Live Projects', 'EMI Fee Payment'],
@@ -24,13 +24,13 @@ export default function Hero() {
         <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#EFBF04]/75 to-transparent" />
         <span className="relative font-['Bricolage_Grotesque'] text-lg font-bold tracking-wide text-white sm:text-xl">Run by a <span className="text-[#FFD027]">Real Marketing Agency</span></span>
       </div>
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-8 lg:px-10 text-center">
-        <h1 className="mx-auto mb-1.5 max-w-5xl text-[clamp(2.3rem,10vw,5.5rem)] font-bold leading-[1.04] text-white drop-shadow-[0_4px_24px_rgba(22,5,52,.35)] sm:mb-2">
+      <div className="relative  mx-auto max-w-5xl px-4 sm:px-8 lg:px-10 text-center">
+        <h1 className="mx-auto mb-4 max-w-5xl text-[clamp(2.3rem,10vw,5.5rem)] font-bold leading-[1.04] text-white drop-shadow-[0_4px_24px_rgba(22,5,52,.35)] sm:mb-5">
           {heroContent.title.split(/(Digital Marketing|Sangam Vihar)/i).map((part, index) => /digital marketing|sangam vihar/i.test(part)
             ? <span key={index} className="font-['Bricolage_Grotesque'] font-bold text-[#EFBF04]">{part}</span>
             : part)}
         </h1>
-        <p className="hero-demo-badge relative isolate mx-auto mb-2 w-full max-w-[400px] overflow-hidden rounded-full border border-[#EFBF04]/50 bg-[#291145]/65 px-5 py-2.5 font-['Bricolage_Grotesque'] text-sm font-bold leading-snug text-white shadow-[0_8px_24px_rgba(18,5,38,.2)] sm:mb-6 sm:px-7 sm:py-3 sm:text-base">
+        <p className="hero-demo-badge relative isolate mx-auto mb-4 w-full max-w-[400px] overflow-hidden rounded-full border border-[#EFBF04]/50 bg-[#291145]/65 px-5 py-2.5 font-['Bricolage_Grotesque'] text-sm font-bold leading-snug text-white shadow-[0_8px_24px_rgba(18,5,38,.2)] sm:mb-6 sm:px-7 sm:py-3 sm:text-base">
           <span className="sr-only">Join a Free Demo Session Every Saturday</span>
           <span aria-hidden="true" className="hero-demo-track">
             <span className="hero-demo-item">Join a <span className="text-[#FFD027]">Free Demo Session</span> Every Saturday</span>
@@ -38,7 +38,7 @@ export default function Hero() {
           </span>
         </p>
         <p className="mx-auto mb-7 max-w-3xl text-lg leading-relaxed text-white/90 sm:mb-9 sm:text-xl">
-          Become an <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">AI-Powered Digital &amp; Performance Marketer</strong> in just 6 months. Unlock <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">exciting job opportunities</strong>.
+          Become an <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">AI-powered digital marketer</strong> in just 6 months and get <strong className="font-extrabold text-[#E8C9FF] underline decoration-[#FFD027] decoration-2 underline-offset-4">high-paying job opportunities</strong>.
         </p>
         <div className="mb-4 flex justify-center sm:mb-5"><PrimaryButton className="w-full min-[520px]:w-auto">{heroContent.primaryButton}</PrimaryButton></div>
         {heroContent.note && <p className="text-white/75 text-base sm:text-base mb-7 sm:mb-9"><RichText>{heroContent.note}</RichText></p>}

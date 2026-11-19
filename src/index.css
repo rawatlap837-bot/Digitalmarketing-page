@@ -7,23 +7,31 @@
   --section-background: linear-gradient(135deg, #14283F 0%, #101C32 55%, #192642 100%);
 }
 .bg-violet { background: var(--section-background); }
-html { scroll-behavior: smooth; }
-.testimonial-scroll {
-  scroll-snap-type: x mandatory;
+html {
   scroll-behavior: smooth;
-  scrollbar-width: none;
+  scroll-padding-top: 72px;
   -webkit-overflow-scrolling: touch;
 }
-.testimonial-scroll::-webkit-scrollbar { display: none; }
+body {
+  overscroll-behavior-y: auto;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  background: #100D1B;
+  color: #FFFFFF;
+  font: 400 17px/1.65 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  background-image: radial-gradient(ellipse at 12% 4%, rgba(151,113,255,.22), transparent 34%), radial-gradient(ellipse at 90% 28%, rgba(209,192,255,.11), transparent 34%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+}
+#root, .page-section, .comparison-section {
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+}
 .page-reveal { opacity: 0; transition: opacity .85s ease; }
 .page-reveal.is-revealed { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .page-reveal { opacity: 1; }
 }
-body { margin: 0; background: #100D1B; color: #FFFFFF; font: 400 17px/1.65 'DM Sans', sans-serif; overflow-x: hidden;
-  background-image: radial-gradient(ellipse at 12% 4%, rgba(151,113,255,.22), transparent 34%), radial-gradient(ellipse at 90% 28%, rgba(209,192,255,.11), transparent 34%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: auto, auto, 56px 56px, 56px 56px; }
-body #root { text-transform: capitalize; }
 h1, h2, h3 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -.035em; }
 h1 { text-wrap: balance; }
 h2 { text-wrap: balance; }
@@ -60,8 +68,8 @@ input, select, button, a { -webkit-tap-highlight-color: transparent; }
 }
 .hero-demo-item { flex: 0 0 auto; padding-right: 2rem; white-space: nowrap; }
 @keyframes hero-demo-marquee {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-demo-track { animation: none; }
@@ -340,19 +348,15 @@ summary { cursor: pointer; }
 @media (min-width: 1024px) {
   #solution h2 { margin-left: 0; margin-right: 0; text-align: left; }
 }
-.benefit-card { animation: benefit-border 6s ease-in-out infinite; animation-delay: var(--benefit-delay); }
+.benefit-card { animation: none; border-color: #EFBF04; }
 .benefit-glow { animation: benefit-glow 6s ease-in-out infinite; animation-delay: var(--benefit-delay); }
 .benefit-star { transform-origin: 35px 16px; animation: benefit-sparkle 3s ease-in-out infinite; animation-delay: var(--benefit-delay); }
 .benefit-dot { animation: benefit-sparkle 3s ease-in-out infinite reverse; animation-delay: var(--benefit-delay); }
 .benefit-accent {
-  background: linear-gradient(90deg, transparent, #A77ADD, #7147B8, transparent);
+  background: linear-gradient(90deg, transparent, #FFD027, #EFBF04, transparent);
   background-size: 200% 100%;
   animation: benefit-sweep 4s linear infinite;
   animation-delay: var(--benefit-delay);
-}
-@keyframes benefit-border {
-  0%, 100% { border-color: #E8E1F0; }
-  50% { border-color: #BA95E4; }
 }
 @keyframes benefit-glow {
   0%, 100% { transform: translate(0, 0) scale(.8); opacity: .4; }
@@ -386,3 +390,37 @@ summary { cursor: pointer; }
 }
 :focus-visible { outline: 3px solid rgba(198,174,255,.8); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@keyframes comparison-enter {
+  from { opacity: 0; transform: translateY(24px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes comparison-row-enter {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes comparison-symbol-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes comparison-vs-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.06) rotate(-3deg); }
+}
+.comparison-panel { animation: comparison-enter .7s cubic-bezier(.2,.75,.25,1) both; }
+.comparison-panel:last-child { animation-delay: .18s; }
+.comparison-title { animation: comparison-enter .6s .15s cubic-bezier(.2,.75,.25,1) both; }
+.comparison-row { animation: comparison-row-enter .45s cubic-bezier(.2,.75,.25,1) both; animation-delay: calc(.35s + var(--row-delay)); }
+.comparison-symbol { animation: comparison-symbol-pulse 2.4s ease-in-out infinite; }
+.comparison-vs { animation: comparison-vs-pulse 2.8s ease-in-out infinite; }
+.comparison-section { isolation: isolate; }
+.comparison-orb { position: absolute; z-index: -1; width: 280px; height: 280px; border-radius: 9999px; filter: blur(40px); opacity: .18; animation: comparison-orb-float 8s ease-in-out infinite; }
+.comparison-orb-left { left: -120px; top: 12%; background: #18A957; }
+.comparison-orb-right { right: -120px; bottom: 8%; background: #EF4545; animation-delay: -4s; }
+.comparison-panel { transform-origin: center; transition: transform .35s ease, box-shadow .35s ease; }
+.comparison-panel:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(36,47,65,.14); }
+.comparison-row { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+.comparison-row:hover { transform: translateX(5px); background: rgba(255,255,255,.96); box-shadow: 0 10px 24px rgba(36,47,65,.10); }
+.comparison-symbol { position: relative; }
+.comparison-symbol::after { content: ''; position: absolute; inset: -5px; border-radius: inherit; border: 1px solid currentColor; opacity: .22; animation: comparison-halo 2.4s ease-out infinite; }
+@keyframes comparison-orb-float { 0%, 100% { transform: translate3d(0,0,0) scale(.9); } 50% { transform: translate3d(30px,-24px,0) scale(1.12); } }
+@keyframes comparison-halo { 0% { transform: scale(.75); opacity: .55; } 70%, 100% { transform: scale(1.35); opacity: 0; } }

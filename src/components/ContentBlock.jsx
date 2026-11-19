@@ -33,7 +33,7 @@ export default function ContentBlock({ block, alternate = false }) {
         const proof = agency && text.match(/^(.*?)(\s*\[Add proof:[^\]]+\])$/)
         return proof
           ? <div key={index} className="mb-5 max-w-3xl"><p className="mb-4 text-base leading-7 text-[#594D6B] sm:text-lg"><RichText>{proof[1]}</RichText></p><div className="flex items-start gap-3 rounded-xl border border-[#DCD2F1] bg-[#F7F4FB] p-4 text-sm leading-6 text-[#594D6B]"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#EDE8F8] text-[#6346B4]"><HugeiconsIcon icon={ChartLineData01Icon} size={19} aria-hidden="true" /></span><span><RichText>{proof[2].trim()}</RichText></span></div></div>
-          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : id === 'solution' ? 'text-lg leading-8 sm:text-lg' : 'text-base sm:text-lg'} ${id === 'modules' ? 'mt-0 max-w-3xl mb-4 sm:mb-5' : 'max-w-3xl mb-4 sm:mb-5'}`}><RichText>{text}</RichText></p>
+          : <p key={index} className={`${alternate ? 'text-[#594D6B]' : 'text-[#D0C7E0]'} ${featured ? 'text-base font-semibold sm:text-xl leading-7 sm:leading-8' : id === 'solution' ? `text-lg leading-8 sm:text-lg ${index === 0 ? 'mb-8 sm:mb-10' : 'mt-2 mb-4 sm:mb-5'}` : 'text-base sm:text-lg'} ${id === 'modules' ? 'mt-0 max-w-3xl mb-4 sm:mb-5' : id !== 'solution' ? 'max-w-3xl mb-4 sm:mb-5' : 'max-w-3xl'}`}><RichText>{text}</RichText></p>
       })}
       {id === 'solution' && <>
         <InstituteCarousel />

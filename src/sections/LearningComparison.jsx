@@ -27,16 +27,16 @@ function ComparisonPanel({ title, items, positive }) {
         : { panel: 'bg-[#FCE5E9]', icon: 'bg-[#EF4545] shadow-[0_6px_16px_rgba(239,69,69,.28)]', symbol: '\u00D7' }
 
     return (
-        <div className={`rounded-[28px] border-[3px] border-white p-4 shadow-[0_18px_42px_rgba(36,47,65,.08)] sm:p-6 lg:p-8 ${tone.panel}`}>
-            <div className="mx-auto mb-5 flex w-fit items-center gap-3 rounded-full border border-white/80 bg-white/90 py-2.5 pl-3 pr-5 shadow-[0_8px_24px_rgba(36,47,65,.08)] sm:mb-7 sm:py-3 sm:pl-4 sm:pr-6">
-                <span aria-hidden="true" className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-3xl font-bold leading-none text-white sm:h-14 sm:w-14 ${tone.icon}`}>
+        <div className={`comparison-panel rounded-[28px] border-[3px] border-white p-4 shadow-[0_18px_42px_rgba(36,47,65,.08)] sm:p-6 lg:p-8 ${tone.panel}`}>
+            <div className="comparison-title mx-auto mb-5 flex w-fit items-center gap-3 rounded-full border border-white/80 bg-white/90 py-2.5 pl-3 pr-5 shadow-[0_8px_24px_rgba(36,47,65,.08)] sm:mb-7 sm:py-3 sm:pl-4 sm:pr-6">
+                <span aria-hidden="true" className={`comparison-symbol grid h-11 w-11 shrink-0 place-items-center rounded-full text-3xl font-bold leading-none text-white sm:h-14 sm:w-14 ${tone.icon}`}>
                     {tone.symbol}
                 </span>
                 <h2 className="font-['Bricolage_Grotesque'] text-lg font-bold leading-tight text-[#18315A] sm:text-2xl">{title}</h2>
             </div>
             <ul className="grid gap-3">
-                {items.map(({ text, highlight }) => <li key={text} className="flex min-h-[68px] items-center gap-3 rounded-2xl border border-white/80 bg-white/75 px-3 py-3 shadow-[0_6px_18px_rgba(36,47,65,.05)] sm:min-h-[76px] sm:gap-4 sm:px-5 sm:py-4">
-                    <span aria-hidden="true" className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-2xl font-bold leading-none text-white ${tone.icon}`}>
+                {items.map(({ text, highlight }, index) => <li key={text} style={{ '--row-delay': `${index * 90}ms` }} className="comparison-row flex min-h-[68px] items-center gap-3 rounded-2xl border border-white/80 bg-white/75 px-3 py-3 shadow-[0_6px_18px_rgba(36,47,65,.05)] sm:min-h-[76px] sm:gap-4 sm:px-5 sm:py-4">
+                    <span aria-hidden="true" className={`comparison-symbol grid h-10 w-10 shrink-0 place-items-center rounded-full text-2xl font-bold leading-none text-white ${tone.icon}`}>
                         {tone.symbol}
                     </span>
                     <span className="text-sm font-medium leading-snug text-[#18315A] sm:text-base"><HighlightedText text={text} highlight={highlight} /></span>
@@ -48,10 +48,12 @@ function ComparisonPanel({ title, items, positive }) {
 
 export default function LearningComparison() {
     return (
-        <section aria-label="Creative Adhyayan compared with other institutes" className="relative overflow-hidden border-b border-[#E8E7E5] bg-[#F7F8F7] px-4 py-12 sm:px-7 sm:py-16 lg:px-10 lg:py-20">
-            <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        <section aria-label="Creative Adhyayan compared with other institutes" className="comparison-section relative overflow-hidden border-b border-[#E8E7E5] bg-[#F7F8F7] px-4 py-12 sm:px-7 sm:py-16 lg:px-10 lg:py-20">
+            <div aria-hidden="true" className="comparison-orb comparison-orb-left" />
+            <div aria-hidden="true" className="comparison-orb comparison-orb-right" />
+            <div className="relative mx-auto grid max-w-6xl items-center lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
                 <ComparisonPanel title="Creative Adhyayan" items={creativeAdhyayanPoints} positive />
-                <span aria-hidden="true" className="relative z-10 mx-auto -my-5 grid h-[76px] w-[76px] place-items-center rounded-full border-[6px] border-[#F7F8F7] bg-[#7147B8] text-xl font-black uppercase text-white shadow-[0_8px_22px_rgba(68,39,112,.25)] lg:-mx-5 lg:my-0 lg:h-[88px] lg:w-[88px] lg:text-2xl">VS</span>
+                <span aria-hidden="true" className="comparison-vs relative z-10 mx-auto -my-5 grid h-[76px] w-[76px] place-items-center rounded-full border-[6px] border-[#F7F8F7] bg-[#7147B8] text-xl font-black uppercase text-white shadow-[0_8px_22px_rgba(68,39,112,.25)] lg:-mx-5 lg:my-0 lg:h-[88px] lg:w-[88px] lg:text-2xl">VS</span>
                 <ComparisonPanel title="Other Institutes" items={otherInstitutePoints} />
             </div>
         </section>
