@@ -348,7 +348,8 @@ summary { cursor: pointer; }
 @media (min-width: 1024px) {
   #solution h2 { margin-left: 0; margin-right: 0; text-align: left; }
 }
-.benefit-card { animation: none; border-color: #EFBF04; }
+.benefit-card { animation: none; border-color: #C8B4E8; }
+.benefit-card:hover { border-color: #D6C5F1; }
 .benefit-glow { animation: benefit-glow 6s ease-in-out infinite; animation-delay: var(--benefit-delay); }
 .benefit-star { transform-origin: 35px 16px; animation: benefit-sparkle 3s ease-in-out infinite; animation-delay: var(--benefit-delay); }
 .benefit-dot { animation: benefit-sparkle 3s ease-in-out infinite reverse; animation-delay: var(--benefit-delay); }

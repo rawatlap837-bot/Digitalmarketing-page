@@ -43,7 +43,7 @@ export default function ProblemInsights({ items }) {
         const card = cards[index % cards.length]
         const headingEnd = text.indexOf('. ')
         const heading = headingEnd === -1 ? text : text.slice(0, headingEnd)
-        return <li key={text} style={{ '--benefit-delay': `${index * -1.1}s` }} className="benefit-card group relative isolate overflow-hidden rounded-2xl border-2 border-[#EFBF04] bg-[#F7F1FF] p-3.5 shadow-[0_4px_20px_rgba(50,31,78,.04)] transition-all duration-200 hover:border-[#FFD027] hover:shadow-[0_12px_28px_rgba(83,49,130,.09)] sm:p-6">
+        return <li key={text} style={{ '--benefit-delay': `${index * -1.1}s` }} className="benefit-card group relative isolate overflow-hidden rounded-2xl border-2 border-[#C8B4E8] bg-[#F7F1FF] p-3.5 shadow-[0_4px_20px_rgba(50,31,78,.04)] transition-all duration-200 hover:border-[#D6C5F1] hover:shadow-[0_12px_28px_rgba(83,49,130,.09)] sm:p-6">
           <span aria-hidden="true" className="benefit-glow pointer-events-none absolute -right-8 -top-8 -z-10 h-32 w-32 rounded-full bg-[#B68CEB]/25 blur-2xl" />
           <div className="relative mb-3 flex items-center justify-center">
             <span style={{ animationDelay: `${index * -0.65}s` }} className="benefit-icon grid h-11 w-11 sm:h-14 sm:w-14 place-items-center rounded-xl border border-[#E8DDF6] bg-[#F2ECFB] text-[#7147B8] shadow-[0_4px_12px_rgba(113,71,184,.12)]">

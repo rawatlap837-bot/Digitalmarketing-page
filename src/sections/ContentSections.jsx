@@ -26,8 +26,7 @@ const contentSections = [
     title: 'About',
     highlight: 'Creative Adhyayan',
     paragraphs: [
-      'At Creative Adhyayan, we focus more on **practical learning** alongside theoretical knowledge. Since our institute is backed by a **real digital marketing agency**, we understand what the industry actually demands.',
-      "That's why we prioritise **hands-on experience** and **real-world projects** to prepare our students for successful careers.",
+      'At Creative Adhyayan, We Focus More On **Practical Learning** Alongside Theoretical Knowledge. Since Our Institute Is Backed By A **Real Digital Marketing Agency**, We Understand What The Industry Actually Demands.',
     ],
   },
   {
